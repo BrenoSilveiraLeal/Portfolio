@@ -14,7 +14,7 @@ export function Header() {
 
   return <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
     <a className="wordmark brand-logo" href="#top" aria-label="Breno Silveira, início">
-      <span className="brand-b">B</span><span className="brand-b-rest" aria-hidden="true">reno </span><span className="brand-s">S</span><span className="brand-dot" aria-hidden="true">.</span><span className="brand-s-rest" aria-hidden="true">ilveira</span>
+      <span className="brand-b">B</span><span className="brand-b-rest" aria-hidden="true">reno </span><span className="brand-s">S</span><span className="brand-s-rest" aria-hidden="true">ilveira</span>
     </a>
     <nav className={open ? 'main-nav is-open' : 'main-nav'} aria-label="Navegação principal">
       <a href="#top" onClick={() => setOpen(false)}>INÍCIO</a><a href="#skills" onClick={() => setOpen(false)}>HABILIDADES</a><a href="#work" onClick={() => setOpen(false)}>PROJETOS</a><a href="#about" onClick={() => setOpen(false)}>SOBRE</a><a href="#contact" onClick={() => setOpen(false)}>CONTATO</a>

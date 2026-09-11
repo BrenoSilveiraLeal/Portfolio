@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Breno Silveira — Technology, AI & Digital Experiences',
+  title: 'Breno Silveira - Full Stack Developer & Creative Technologist',
   description: 'Portfólio de Breno Silveira: tecnologia, IA, automação e experiências digitais.',
   icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
+    icon: '/favicon.jfif',
+    apple: '/favicon.jfif',
   },
 };
 
