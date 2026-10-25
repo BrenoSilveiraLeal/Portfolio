@@ -8,7 +8,7 @@ export type Project = {
   role: string;
   stack: string[];
   liveUrl?: string;
-  visual: 'insidely' | 'casa' | 'aeternum';
+  visual: 'insidely' | 'casa' | 'atlas';
   previewUrl?: string;
   cover?: string;
   status?: string;
@@ -20,7 +20,7 @@ export const projects: Project[] = [
     description: 'Marketplace de conversas profissionais para conhecer a realidade de empresas e profissões antes de tomar decisões de carreira.',
     detail: 'Uma plataforma digital para descobrir o que existe por dentro de uma oportunidade antes de tomar uma decisão.',
     role: 'Conceito, produto, UX/UI e desenvolvimento', stack: ['Product thinking', 'UX/UI', 'React', 'Next.js', 'Supabase'],
-    liveUrl: 'https://insidely.vercel.app/', previewUrl: 'https://insidely.vercel.app/', visual: 'insidely', cover: '/images/projects/insidely-home.png', status: 'Em desenvolvimento',
+    liveUrl: 'https://insidely.vercel.app/', previewUrl: 'https://insidely.vercel.app/', visual: 'insidely', cover: '/images/projects/insidely-home.png',
   },
   {
     id: '02', slug: 'casa-da-inovacao', name: 'Casa da Inovação', category: 'Institutional / education',
@@ -30,11 +30,11 @@ export const projects: Project[] = [
     liveUrl: 'https://casadainovacao.vercel.app/', previewUrl: 'https://casadainovacao.vercel.app/', visual: 'casa', cover: '/images/projects/casa-da-inovacao-home.png',
   },
   {
-    id: '03', slug: 'aeternum', name: 'AETERNUM', category: 'AI / multi-agent ecosystem',
+    id: '03', slug: 'atlas', name: 'A.T.L.A.S', category: 'AI / multi-agent ecosystem',
     description: 'Ecossistema de agentes artificiais especializados em inteligência financeira, pesquisa de mercado, análise quantitativa e trading algorítmico.',
     detail: 'Um ecossistema multi-agente de inteligência artificial para explorar diferentes camadas de análise financeira e de mercado.',
-    role: 'Projeto em desenvolvimento', stack: ['Inteligência financeira', 'Pesquisa de mercado', 'Análise quantitativa', 'Trading algorítmico'],
-    visual: 'aeternum', status: 'Em desenvolvimento',
+    role: 'Conceito, arquitetura multi-agente, UX/UI e desenvolvimento', stack: ['Inteligência financeira', 'Pesquisa de mercado', 'Análise quantitativa', 'Trading algorítmico'],
+    liveUrl: 'https://atlasagent.vercel.app/app', previewUrl: 'https://atlasagent.vercel.app/app', visual: 'atlas', cover: '/images/projects/atlas-home.png',
   },
 ];
 

@@ -139,3 +139,46 @@ html.motion-ready [data-motion="contact-details"] .contact-socials a{opacity:0;t
 .contact-section .contact-socials a:hover::after{transform:translate(3px,-2px)}
 .contact-section .contact-socials a:hover::before{filter:invert(1)}
 @media(max-width:800px){.contact-section .contact-details{display:block}.contact-section .contact-support{margin-bottom:30px}.contact-section .contact-socials{display:flex}}
+/* Camada de responsividade: largura máxima de conteúdo e espaçamentos fluidos, iguais em qualquer resolução. */
+:root{--gutter:clamp(20px,5vw,72px);--content:1320px;--inline:max(var(--gutter),calc((100% - var(--content)) / 2));--section-y:clamp(64px,8vw,120px)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img{max-width:100%}
+.site-header,.tech-marquee-header,.site-footer,.case-header,.case-footer{padding-inline:var(--inline)}
+.hero-section,.tech-stack,.work-section,.capabilities-section,.about-section,.contact-section,.case-hero,.case-story{padding-inline:var(--inline)}
+.case-art{padding-inline:var(--inline)}
+.case-note{margin-inline:var(--inline)}
+.hero-section{min-height:min(calc(100svh - 76px),920px);padding-block:clamp(48px,6vw,96px);gap:clamp(32px,5vw,80px);grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+.hero-copy,.hero-portrait-wrap{transform:none}
+.hero-copy h1{font-size:clamp(72px,10.5vw,164px)}
+.hero-role{font-size:clamp(24px,2.6vw,38px);margin-top:clamp(24px,3vw,40px)}
+.hero-description{margin:clamp(18px,2vw,27px) 0}
+.hero-portrait-wrap{width:clamp(260px,30vw,430px)}
+.hero-portrait{height:auto;aspect-ratio:1/1}
+.hero-grid-mark{width:min(45vw,700px);height:min(45vw,700px);right:calc(var(--inline) - min(14vw,220px));top:max(-10vw,-160px)}
+.tech-stack{padding-block:clamp(48px,5vw,72px)}
+.work-section{padding-block:clamp(48px,5vw,80px) var(--section-y)}
+.work-intro{margin-bottom:clamp(40px,6vw,88px);align-items:end}
+.work-intro>p{transform:none}
+.capabilities-section{padding-block:clamp(56px,6vw,96px)}
+.about-section{padding-block:var(--section-y);gap:clamp(40px,7vw,120px)}
+.contact-section{padding-block:var(--section-y)}
+@media(max-width:1100px) and (min-width:801px){.hero-section{min-height:0}
+.project-list{gap:18px}
+}
+@media(max-width:800px){.site-header{height:68px}
+.main-nav{padding-inline:var(--gutter)}
+.hero-section{display:block;min-height:0;padding-block:56px 48px}
+.hero-copy h1{font-size:clamp(64px,22vw,120px)}
+.hero-role{font-size:clamp(24px,7.4vw,32px)}
+.hero-portrait-wrap{width:min(78vw,420px);margin:56px 0 0 auto}
+.hero-grid-mark{width:100vw;height:100vw;right:-65vw;top:16vw}
+.work-intro{display:block}
+.work-intro h2,.about-section h2,.about-lead h2{font-size:clamp(48px,15vw,84px)}
+.contact-lead h2{font-size:clamp(56px,17vw,96px)}
+.project-heading h3,.project-feature-casa .project-heading h3{font-size:clamp(26px,8vw,34px)}
+.capability-card h3{font-size:clamp(30px,9vw,38px)}
+.tech-stack-heading p{font-size:clamp(34px,10.5vw,48px)}
+}
+@media(max-width:420px){.contact-section .contact-socials a:nth-child(n)::after{content:'→'!important;font-size:14px}
+}
+.contact-section .contact-grid{max-width:none}
