@@ -182,3 +182,11 @@ img{max-width:100%}
 @media(max-width:420px){.contact-section .contact-socials a:nth-child(n)::after{content:'→'!important;font-size:14px}
 }
 .contact-section .contact-grid{max-width:none}
+.project-feature-decora .project-heading h3{color:#c3c29e}
+.project-feature-altezza .project-heading h3{color:#d6cfb8}
+.project-feature-cuidapet .project-heading h3{color:#67c9f1}
+.case-page-decora .case-hero h1{color:#c3c29e}
+.case-page-altezza .case-hero h1{color:#d6cfb8}
+.case-page-cuidapet .case-hero h1{color:#67c9f1}
+.project-case-link{display:inline-block;margin:22px 0 20px;color:var(--text);font:10px var(--mono);letter-spacing:.03em;text-decoration:none;text-transform:uppercase;border-bottom:1px solid var(--accent);padding-bottom:8px;transition:color .2s,border-color .2s}
+.project-case-link:hover{color:var(--hot);border-color:var(--hot)}
