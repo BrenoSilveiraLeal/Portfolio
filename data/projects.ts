@@ -50,7 +50,7 @@ export const projects: Project[] = [
     liveUrl: 'https://decoramoveis.vercel.app/', previewUrl: 'https://decoramoveis.vercel.app/', visual: 'decora', cover: '/images/projects/decora-moveis.png',
   },
   {
-    id: '06', slug: 'altezza', name: 'Altiza Imóveis', category: 'Imóveis / alto padrão',
+    id: '06', slug: 'altezza', name: 'Altezza Imóveis', category: 'Imóveis / alto padrão',
     description: 'Experiência digital para uma imobiliária exclusiva, dedicada à apresentação de casas e propriedades de alto padrão.',
     detail: 'Uma vitrine imobiliária editorial que apresenta imóveis premium por meio de imagens amplas, informações essenciais e recursos para agendar uma visita.',
     role: 'Conceito, direção visual, UX/UI e desenvolvimento', stack: ['Real estate', 'UX/UI', 'Front-end'],
