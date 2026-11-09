@@ -269,3 +269,9 @@ html,body{background:var(--ds-page)}
 @media (min-width:901px){
   .portfolio-page .main-nav{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;padding:0;width:max-content}
 }
+
+/* Mobile: a legenda sobre a imagem repete a categoria e quebra em duas linhas; a categoria já aparece abaixo do card */
+@media (max-width:720px){
+  .portfolio-page .preview-overlay{display:none}
+  .portfolio-page .project-meta{min-height:0}
+}

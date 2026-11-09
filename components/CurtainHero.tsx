@@ -30,6 +30,9 @@ export function CurtainHero() {
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+    // Ao recarregar, a página sempre começa com a cortina fechada (sem restaurar o scroll antigo).
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (!window.location.hash) window.scrollTo(0, 0);
     const mobileMq = window.matchMedia('(max-width: 720px)');
     const reduceMq = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -154,8 +157,14 @@ export function CurtainHero() {
             <nav className="curtain-nav" aria-label="Navegação da apresentação">
               {navLinks.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
             </nav>
+          <div className="curtain-m-socials">
+            <a href="https://github.com/BrenoSilveiraLeal" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/breno-silveira-leal/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://drive.google.com/file/d/1Ndul6LeKdTYOTpgyiEN-W4yCvnD1IWnM/view?usp=sharing" target="_blank" rel="noreferrer">Currículo</a>
+          </div>
           </div>
           <div className="curtain-left-content">
+            <div className="curtain-m-status"><i aria-hidden="true" />Disponível para novos projetos</div>
             <p className="curtain-eyebrow">Olá, eu sou</p>
             <h1 id="hero-title">Breno<br /><span>Silveira</span></h1>
             <div className="curtain-mobile-sub">
