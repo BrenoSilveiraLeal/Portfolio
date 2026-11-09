@@ -304,3 +304,65 @@ html,body{background:var(--ds-page)}
   .portfolio-page .menu-button[aria-expanded="true"] span:first-child{transform:translateY(5.5px) rotate(45deg)}
   .portfolio-page .menu-button[aria-expanded="true"] span:last-child{transform:translateY(-5.5px) rotate(-45deg)}
 }
+
+/* Contatos: o texto/ícone vira branco na hora no hover; só o fundo faz transição (antes ficava preto sobre preto por ~0,25s) */
+.portfolio-page .contact-socials a{
+  transition:background .25s ease,border-color .25s ease,transform .25s ease,opacity .25s ease,color 0s!important;
+}
+.portfolio-page .contact-socials a::before,.portfolio-page .contact-socials a::after{transition:transform .25s ease!important}
+
+/* ===== Mobile (versão final): ritmo e hierarquia consistentes em todas as seções ===== */
+@media (max-width:720px){
+  :root{--ds-pad:36px 20px}
+  .ribbon-canvas{display:none}
+  .portfolio-page .tech-stack-heading p,.portfolio-page .work-intro h2,.portfolio-page .about-lead h2,.portfolio-page .contact-lead h2{font-size:clamp(34px,9.6vw,42px);line-height:1;margin-top:12px}
+  .portfolio-page .tech-stack-heading p{margin-top:0}
+  .portfolio-page .tech-heading-rest{display:block}
+
+  /* habilidades: sem os vãos enormes entre os grupos */
+  .portfolio-page .tech-stack-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:28px}
+  .portfolio-page .tech-stack-group{margin:0!important;padding:20px 18px;border-radius:18px}
+  .portfolio-page .tech-stack-group h3{margin:0 0 14px!important}
+  .portfolio-page .tech-stack-items span{padding:7px 12px}
+
+  /* projetos */
+  .portfolio-page .work-intro{margin-bottom:24px;gap:14px}
+  .portfolio-page .work-intro>p{font-size:15px}
+  .portfolio-page .project-list{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+  .portfolio-page .project-feature,.portfolio-page .project-feature-casa{padding:8px 8px 20px;border-radius:22px}
+  .portfolio-page .project-visual{border-radius:15px}
+  .portfolio-page .project-heading,.portfolio-page .project-description,.portfolio-page .project-case-link,.portfolio-page .project-meta{margin-inline:10px}
+  .portfolio-page .project-heading{margin-top:18px}
+  .portfolio-page .project-heading h3{font-size:26px}
+  .portfolio-page .project-description{flex:none;font-size:14.5px;line-height:1.55;margin-top:8px}
+  .portfolio-page .project-case-link{margin-top:18px;margin-bottom:16px;padding:11px 18px;font-size:13px}
+  .portfolio-page .project-meta span{font-size:11.5px;padding:6px 11px}
+
+  /* serviços: a pergunta vira o título da seção, cartões compactos */
+  .portfolio-page .capabilities-header{flex-direction:column;align-items:flex-start;gap:12px}
+  .portfolio-page .capabilities-header span{
+    font-size:clamp(30px,8.6vw,38px);font-weight:800;line-height:1.02;letter-spacing:-.045em;text-transform:none;color:var(--ds-ink);
+  }
+  .portfolio-page .capability-list{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:28px}
+  .portfolio-page .capability-card{padding:20px 18px;border-radius:18px}
+  .portfolio-page .capability-card h3{font-size:21px;margin-top:12px;letter-spacing:-.03em}
+  .portfolio-page .capability-card h3 br{display:none}
+  .portfolio-page .capability-card p{font-size:14px;margin-top:6px;max-width:none}
+
+  /* sobre */
+  .portfolio-page .about-section{gap:20px}
+  .portfolio-page .about-copy p{font-size:15px;line-height:1.6}
+  .portfolio-page .about-highlights{padding:16px 18px;margin-top:20px}
+  .portfolio-page .about-copy>a{margin-top:22px}
+
+  /* contato */
+  .portfolio-page .contact-grid{gap:24px}
+  .portfolio-page .contact-section .contact-socials{gap:8px}
+  .portfolio-page .contact-section .contact-socials a{min-height:52px;padding:0 14px}
+  .portfolio-page .site-footer{text-align:center;padding:24px 16px}
+}
+@media (max-width:720px){
+  .portfolio-page .project-description{margin-bottom:0}
+  .portfolio-page .project-case-link{margin-top:20px}
+  .portfolio-page .contact-details{margin-top:0!important;padding-top:0!important}
+}

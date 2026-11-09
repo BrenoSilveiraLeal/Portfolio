@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from 'react';
 
 const capabilities = [
-  { number: '01', title: <>Desenvolvimento<br />Web</>, description: 'Sites e aplicações modernas, responsivas e focadas em experiência.' },
-  { number: '02', title: <>IA &amp;<br />Automação</>, description: 'IA aplicada ao desenvolvimento, prototipação e automação de processos.' },
-  { number: '03', title: <>Soluções &amp;<br />Integrações</>, description: 'APIs, dados e serviços conectados para criar produtos funcionais.' },
-  { number: '04', title: <>Tecnologia<br />Criativa</>, description: 'Código, design e interação para criar experiências digitais diferenciadas.' },
+  { number: '01', title: <>Desenvolvimento<br /> Web</>, description: 'Sites e aplicações modernas, responsivas e focadas em experiência.' },
+  { number: '02', title: <>IA &amp;<br /> Automação</>, description: 'IA aplicada ao desenvolvimento, prototipação e automação de processos.' },
+  { number: '03', title: <>Soluções &amp;<br /> Integrações</>, description: 'APIs, dados e serviços conectados para criar produtos funcionais.' },
+  { number: '04', title: <>Tecnologia<br /> Criativa</>, description: 'Código, design e interação para criar experiências digitais diferenciadas.' },
 ];
 
 export function CapabilitiesSection() {

@@ -16,7 +16,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: '01', slug: 'insidely', name: 'Insidely', category: 'Product / career platform',
-    description: 'Plataforma web de consultas com profissionais verificados para apoio a decisões de carreira, com o objetivo de reduzir a frustração profissional.',
+    description: 'Plataforma web de consultas com profissionais verificados para apoio a decisões de carreira com o objetivo de reduzir a frustração profissional.',
     detail: 'A Insidely aproxima pessoas de funcionários verificados para oferecer conversas e perspectivas reais sobre empresas e profissões antes de uma decisão de carreira.',
     role: 'Conceito, produto, UX/UI e desenvolvimento', stack: ['Product thinking', 'UX/UI', 'React', 'Next.js', 'Supabase'],
     liveUrl: 'https://insidely.vercel.app/', previewUrl: 'https://insidely.vercel.app/', visual: 'insidely', cover: '/images/projects/insidely-preview-20261109.jpg',
@@ -37,8 +37,8 @@ export const projects: Project[] = [
   },
   {
     id: '04', slug: 'cuidapet', name: 'CuidaPet', category: 'Pet care / saúde e rotina',
-    description: 'Carteira de vacinação digital para pets, com dicas de cuidado, produtos indicados e ficha clínica que gera um PDF com peso, idade e o problema do animal para enviar ao veterinário.',
-    detail: 'Uma plataforma que reúne a carteira de vacinação do pet, dicas de cuidado e produtos indicados. Também permite preencher a ficha clínica, com nome, peso, idade e o problema observado, e gerar um PDF para encaminhar ao veterinário.',
+    description: 'Carteira de vacinação digital para pets, com dicas de cuidado, produtos indicados e uma ficha clínica completa: o histórico do animal, idas anteriores ao veterinário, acidentes e dados como peso e idade, exportados em PDF para o veterinário.',
+    detail: 'Uma plataforma que reúne a carteira de vacinação do pet, dicas de cuidado e produtos indicados. A ficha clínica guarda o histórico completo do animal (consultas anteriores, acidentes, tratamentos, peso, idade e o problema atual) e gera um PDF para encaminhar ao veterinário.',
     role: 'Conceito, produto, UX/UI e desenvolvimento', stack: ['Product thinking', 'UX/UI', 'Agenda e lembretes', 'Saúde animal'],
     liveUrl: 'https://cuidapetapp.vercel.app/', previewUrl: 'https://cuidapetapp.vercel.app/', visual: 'cuidapet', cover: '/images/projects/cuidapet-preview.jpg',
   },
