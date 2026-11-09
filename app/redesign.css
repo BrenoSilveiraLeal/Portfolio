@@ -275,3 +275,32 @@ html,body{background:var(--ds-page)}
   .portfolio-page .preview-overlay{display:none}
   .portfolio-page .project-meta{min-height:0}
 }
+
+/* ---------- menu mobile animado (abre e fecha) ---------- */
+@media (max-width:800px){
+  .portfolio-page .main-nav{
+    display:flex!important;position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;gap:2px;padding:12px;
+    background:rgba(18,22,26,.97);border:2px solid var(--ds-border);border-radius:24px;box-shadow:0 24px 50px rgba(0,0,0,.5);
+    -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+    opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-12px) scale(.97);transform-origin:top center;
+    transition:opacity .26s var(--ds-ease),transform .32s var(--ds-ease),visibility 0s linear .32s;
+  }
+  .portfolio-page .main-nav.is-open{
+    opacity:1;visibility:visible;pointer-events:auto;transform:none;
+    transition:opacity .26s var(--ds-ease),transform .32s var(--ds-ease),visibility 0s;
+  }
+  .portfolio-page .main-nav a{
+    padding:14px 14px;border-radius:14px;font-size:13px;opacity:0;transform:translateY(-6px);
+    transition:opacity .2s ease,transform .3s var(--ds-ease),background .2s ease,color .28s var(--ds-ease);
+  }
+  .portfolio-page .main-nav.is-open a{opacity:1;transform:none}
+  .portfolio-page .main-nav.is-open a:nth-child(1){transition-delay:.04s}
+  .portfolio-page .main-nav.is-open a:nth-child(2){transition-delay:.08s}
+  .portfolio-page .main-nav.is-open a:nth-child(3){transition-delay:.12s}
+  .portfolio-page .main-nav.is-open a:nth-child(4){transition-delay:.16s}
+  .portfolio-page .main-nav.is-open a:nth-child(5){transition-delay:.2s}
+  .portfolio-page .main-nav a:active{background:rgba(255,255,255,.05)}
+  .portfolio-page .menu-button span{transition:transform .3s var(--ds-ease),opacity .2s ease}
+  .portfolio-page .menu-button[aria-expanded="true"] span:first-child{transform:translateY(5.5px) rotate(45deg)}
+  .portfolio-page .menu-button[aria-expanded="true"] span:last-child{transform:translateY(-5.5px) rotate(-45deg)}
+}

@@ -33,9 +33,6 @@ export function CurtainHero() {
     // Ao recarregar, a página sempre começa com a cortina fechada (sem restaurar o scroll antigo).
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     if (!window.location.hash) window.scrollTo(0, 0);
-    // Altura real da tela (a barra do navegador no celular muda ao rolar e deixava uma faixa preta embaixo).
-    const setVh = () => document.documentElement.style.setProperty('--stage-h', `${window.innerHeight}px`);
-    setVh();
     const mobileMq = window.matchMedia('(max-width: 720px)');
     const reduceMq = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -45,7 +42,6 @@ export function CurtainHero() {
 
     // Progress is measured against the hero track only, so the rest of the page scrolls normally afterwards.
     const measure = () => {
-      setVh();
       const rect = track.getBoundingClientRect();
       const travel = track.offsetHeight - window.innerHeight;
       target = travel > 0 ? clamp(-rect.top / travel) : 0;
@@ -59,8 +55,18 @@ export function CurtainHero() {
       el.style.filter = t >= 1 ? 'none' : `blur(${lerp(16, 0, t)}px)`;
     };
 
+    // No celular não há cortina: a hero é uma seção normal e o JS não mexe em nada.
+    let cleared = false;
+    const clearInline = () => {
+      [leftRef, rightRef, heroRef, portalRef, portalHeadRef, card1Ref, card2Ref, charRef].forEach((r) => r.current?.removeAttribute('style'));
+    };
     const render = (p: number) => {
       const mobile = mobileMq.matches;
+      if (mobile) {
+        if (!cleared) { clearInline(); cleared = true; }
+        return;
+      }
+      cleared = false;
       const curtain = smooth(clamp(p / 0.55));
       if (leftRef.current) leftRef.current.style.transform = `translate3d(${-110 * curtain}vw, 0, 0)`;
       if (rightRef.current) rightRef.current.style.transform = `translate3d(${110 * curtain}vw, 0, 0)`;
@@ -120,7 +126,7 @@ export function CurtainHero() {
 
   const openCurtain = (event: React.MouseEvent<HTMLAnchorElement>) => {
     const track = trackRef.current;
-    if (!track) return;
+    if (!track || window.matchMedia('(max-width: 720px)').matches) return;
     event.preventDefault();
     const travel = track.offsetHeight - window.innerHeight;
     const top = track.getBoundingClientRect().top + window.scrollY + travel * 0.75;

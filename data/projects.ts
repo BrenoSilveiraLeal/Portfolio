@@ -16,7 +16,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: '01', slug: 'insidely', name: 'Insidely', category: 'Product / career platform',
-    description: 'Plataforma web de consultas com profissionais verificados para apoio a decisões de carreira. Com o objetivo de reduzir a frustração profissional.',
+    description: 'Plataforma web de consultas com profissionais verificados para apoio a decisões de carreira, com o objetivo de reduzir a frustração profissional.',
     detail: 'A Insidely aproxima pessoas de funcionários verificados para oferecer conversas e perspectivas reais sobre empresas e profissões antes de uma decisão de carreira.',
     role: 'Conceito, produto, UX/UI e desenvolvimento', stack: ['Product thinking', 'UX/UI', 'React', 'Next.js', 'Supabase'],
     liveUrl: 'https://insidely.vercel.app/', previewUrl: 'https://insidely.vercel.app/', visual: 'insidely', cover: '/images/projects/insidely-preview-20261109.jpg',
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   },
   {
     id: '03', slug: 'atlas', name: 'A.T.L.A.S', category: 'Investimentos / inteligência artificial',
-    description: 'Plataforma de investimentos que usa inteligência artificial para analisar o mercado financeiro e apoiar decisões sobre ações.',
+    description: 'Plataforma de investimentos que usa inteligência artificial para analisar o mercado financeiro e tomar decisões de compra e venda de ações, executadas pelo meu próprio escritório.',
     detail: 'As IAs analisam gráficos, estatísticas e informações do mercado para orientar decisões de compra e venda de ações. A estratégia busca acumular ativos e gerar dividendos, com operações realizadas pela Genial Investimentos.',
     role: 'Conceito, inteligência artificial, UX/UI e desenvolvimento', stack: ['Inteligência artificial', 'Análise de mercado', 'Ações', 'Dividendos'],
     liveUrl: 'https://atlasagent.vercel.app/', previewUrl: 'https://atlasagent.vercel.app/', visual: 'atlas', cover: '/images/projects/atlas-home.png',
