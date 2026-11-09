@@ -75,23 +75,26 @@ html,body{background:var(--ds-page)}
 .portfolio-page .work-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:48px;align-items:end;margin-bottom:48px}
 .portfolio-page .work-intro>p{transform:none;margin:0;font-size:15px;font-weight:500;line-height:1.55;color:var(--ds-body);text-align:right}
 .portfolio-page .project-feature,.portfolio-page .project-feature-casa{padding:12px 12px 24px;margin:0}
+.portfolio-page .project-list{align-items:stretch}
+.portfolio-page .project-feature{display:flex;flex-direction:column;height:100%}
 .portfolio-page .project-visual{border-radius:var(--ds-r-inner);overflow:hidden}
 .portfolio-page .project-heading,.portfolio-page .project-description,.portfolio-page .project-case-link,.portfolio-page .project-meta{margin-inline:14px}
+.portfolio-page .project-heading{min-height:66px}
 .portfolio-page .project-category{color:var(--ds-muted)}
 .portfolio-page .project-heading h3{
   font-family:var(--sans);font-size:clamp(26px,2.2vw,32px);font-weight:800;letter-spacing:-.035em;line-height:1.1;
   color:var(--ds-ink);background:none;-webkit-text-fill-color:currentColor;
 }
 .portfolio-page .project-arrow{color:var(--ds-orange)}
-.portfolio-page .project-description{font-size:14px;line-height:1.6;color:var(--ds-body)}
+.portfolio-page .project-description{font-size:14px;line-height:1.6;color:var(--ds-body);min-height:8em}
 .portfolio-page .project-case-link{
-  display:inline-flex;align-items:center;gap:8px;width:max-content;padding:9px 16px;border:0;border-radius:999px;
+  display:inline-flex;align-items:center;align-self:flex-start;gap:8px;width:max-content;padding:9px 16px;border:0;border-radius:999px;
   background:var(--ds-orange);color:var(--ds-dark);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;
   transition:background .28s var(--ds-ease),transform .28s var(--ds-ease);
 }
 .portfolio-page .project-case-link::after{display:none}
 .portfolio-page .project-case-link:hover{background:var(--ds-hot);transform:translateY(-2px)}
-.portfolio-page .project-meta{gap:8px}
+.portfolio-page .project-meta{gap:8px;min-height:60px;align-content:flex-start}
 .portfolio-page .preview-overlay span{font-size:10px}
 
 /* ---------- serviços ---------- */

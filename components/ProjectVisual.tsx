@@ -7,21 +7,32 @@ import { useRef, useState } from 'react';
 export function ProjectVisual({ project }: { project: Project }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const isStartingRef = useRef(false);
+  const isHoveredRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const previewVideo = project.visual === 'insidely'
-    ? '/videos/insidely-preview.mp4'
+    ? '/videos/insidely-preview-20261109.mp4'
     : project.visual === 'casa'
       ? '/videos/casa-da-inovacao-preview-20261109-v3.mp4'
-      : undefined;
+      : project.visual === 'decora'
+        ? '/videos/decora-moveis-preview.mp4'
+        : project.visual === 'cuidapet'
+          ? '/videos/cuidapet-preview.mp4'
+          : undefined;
   const hasVideoPreview = Boolean(previewVideo);
   const cover = project.visual === 'insidely'
-    ? '/images/projects/insidely-preview.jpg'
+    ? '/images/projects/insidely-preview-20261109.jpg'
     : project.visual === 'casa'
       ? '/images/projects/casa-da-inovacao-preview-20261109-v3.jpg'
-      : project.cover;
+      : project.visual === 'decora'
+        ? '/images/projects/decora-moveis-preview.jpg'
+        : project.visual === 'cuidapet'
+          ? '/images/projects/cuidapet-preview.jpg'
+          : project.cover;
 
   const startPreview = () => {
-    if (!hasVideoPreview || !videoRef.current || isStartingRef.current || isPlaying) return;
+    if (!hasVideoPreview) return;
+    isHoveredRef.current = true;
+    if (!videoRef.current || isStartingRef.current || isPlaying) return;
     isStartingRef.current = true;
     videoRef.current.currentTime = 0;
     void videoRef.current.play().catch(() => {
@@ -32,6 +43,7 @@ export function ProjectVisual({ project }: { project: Project }) {
 
   const stopPreview = () => {
     if (!hasVideoPreview || !videoRef.current) return;
+    isHoveredRef.current = false;
     isStartingRef.current = false;
     videoRef.current.pause();
     videoRef.current.currentTime = 0;
@@ -59,11 +71,19 @@ export function ProjectVisual({ project }: { project: Project }) {
       muted
       loop
       playsInline
-      preload="none"
+      preload="auto"
       aria-hidden="true"
       onPlaying={() => {
         isStartingRef.current = false;
-        setIsPlaying(true);
+        const video = videoRef.current;
+        if (!video) return;
+        if ('requestVideoFrameCallback' in video) {
+          video.requestVideoFrameCallback(() => {
+            if (isHoveredRef.current) setIsPlaying(true);
+          });
+        } else if (isHoveredRef.current) {
+          setIsPlaying(true);
+        }
       }}
       style={{ opacity: isPlaying ? 1 : 0 }}
     />}

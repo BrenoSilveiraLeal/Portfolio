@@ -18,4 +18,24 @@ export const viewport: Viewport = {
   themeColor: '#0b0d0f',
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="pt-BR"><body>{children}</body></html>; }
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="pt-BR">
+    <head>
+      <script dangerouslySetInnerHTML={{ __html: `
+        (() => {
+          const navigation = performance.getEntriesByType('navigation')[0];
+          if (navigation?.type === 'reload') {
+            history.scrollRestoration = 'manual';
+            const goToTop = () => window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            goToTop();
+            window.addEventListener('pageshow', () => {
+              goToTop();
+              history.scrollRestoration = 'auto';
+            }, { once: true });
+          }
+        })();
+      ` }} />
+    </head>
+    <body>{children}</body>
+  </html>;
+}
