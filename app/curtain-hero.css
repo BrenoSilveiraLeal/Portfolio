@@ -48,7 +48,7 @@
 }
 /* preenche o topo vazio: status à esquerda, stack à direita */
 .curtain-status{
-  position:absolute;top:calc(42px + 62px);left:48px;display:inline-flex;align-items:center;gap:10px;
+  position:absolute;top:calc(42px + 96px);right:48px;display:inline-flex;align-items:center;gap:10px;
   padding:9px 16px;border:1px solid var(--c-border);border-radius:999px;background:rgba(255,255,255,.03);
   font-size:12px;font-weight:600;color:#b9bec4;
 }
@@ -240,7 +240,7 @@
 
 /* Parede única: as duas metades se encostam sem borda nem canto no meio; a divisão só aparece quando abrem. */
 .curtain-panel-left{border-right:0!important;border-top-right-radius:0!important}
-.curtain-panel-right{border-left:0!important;border-top-left-radius:0!important;margin-left:-1px!important}
+.curtain-panel-right{border-left:0!important;border-top-left-radius:0!important;margin-left:-2px!important}
 
 /* ===== Escala fixa no desktop =====
    Todas as medidas da hero são múltiplos de --u (1/1322 da largura da tela), então a composição
@@ -254,7 +254,7 @@
   .curtain-nav{display:flex!important;gap:calc(28*var(--u))}
   .curtain-nav a,.curtain-socials a{font-size:calc(11*var(--u))}
   .curtain-socials{height:calc(34*var(--u));gap:calc(28*var(--u))}
-  .curtain-status{top:calc(104*var(--u));left:calc(48*var(--u));gap:calc(10*var(--u));padding:calc(9*var(--u)) calc(16*var(--u));font-size:calc(12*var(--u))}
+  .curtain-status{top:calc(140*var(--u));right:calc(48*var(--u));gap:calc(10*var(--u));padding:calc(9*var(--u)) calc(16*var(--u));font-size:calc(12*var(--u))}
   .curtain-status i{width:calc(8*var(--u));height:calc(8*var(--u))}
   .curtain-chips{top:calc(104*var(--u));right:calc(48*var(--u));gap:calc(8*var(--u));max-width:calc(300*var(--u))}
   .curtain-chips li{padding:calc(8*var(--u)) calc(14*var(--u));font-size:calc(12*var(--u))}

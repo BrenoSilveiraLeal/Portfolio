@@ -94,7 +94,7 @@ html,body{background:var(--ds-page)}
 }
 .portfolio-page .project-case-link::after{display:none}
 .portfolio-page .project-case-link:hover{background:var(--ds-hot);transform:translateY(-2px)}
-.portfolio-page .project-meta{gap:8px;min-height:0;align-content:flex-start}
+.portfolio-page .project-meta{gap:8px;min-height:68px;align-content:flex-start}
 .portfolio-page .project-case-link{margin-top:14px;margin-bottom:14px}
 .portfolio-page .preview-overlay span{font-size:10px}
 
