@@ -1,5 +1,6 @@
-import Image from 'next/image';
 import { Header } from '@/components/Header';
+import { CurtainHero } from '@/components/CurtainHero';
+import { Ribbon } from '@/components/Ribbon';
 import { ProjectFeature } from '@/components/ProjectFeature';
 import { projects } from '@/data/projects';
 import { CapabilitiesSection } from '@/components/CapabilitiesSection';
@@ -8,9 +9,10 @@ import { PageLoader } from '@/components/PageLoader';
 import { MotionLayer } from '@/components/MotionLayer';
 
 export default function Home() {
-  return <main id="top" className="portfolio-page"><PageLoader /><MotionLayer />
+  return <main className="portfolio-page"><PageLoader /><MotionLayer />
+    <CurtainHero />
     <Header />
-    <section className="hero-section" aria-labelledby="hero-title"><div className="hero-grid-mark" /><div className="hero-copy"><p className="hero-kicker" data-motion="hero">Olá, eu sou</p><h1 id="hero-title">Breno<br /><span>Silveira</span></h1><p className="hero-role" data-motion="hero"><strong>Full Stack Developer &</strong><span>Creative Technologist</span><em>Web, IA, automação & experiências digitais.</em></p><p className="hero-description" data-motion="hero">Desenvolvo aplicações e soluções digitais de ponta a ponta, combinando desenvolvimento web, inteligência artificial, automação e experiências interativas.</p><a className="hero-link" data-motion="hero" href="#work">Ver projetos <span>↓</span></a></div><div className="hero-portrait-wrap" data-motion="hero-image"><div className="hero-portrait"><Image src="/images/profile.png" alt="Breno Silveira" fill sizes="(max-width: 800px) 78vw, 36vw" priority /></div></div></section>
+    <Ribbon />
     <TechMarquee />
     <section id="work" className="work-section" aria-labelledby="work-title"><div className="work-intro" data-motion="section"><div><p className="section-label">Meus Projetos</p><h2 id="work-title">Veja os projetos<br /><span>em destaque.</span></h2></div><p>Projetos reais que combinam desenvolvimento, inteligência artificial e soluções digitais.</p></div><div className="project-list">{projects.map((project) => <ProjectFeature key={project.slug} project={project} />)}</div></section>
     <CapabilitiesSection />

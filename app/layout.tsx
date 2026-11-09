@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import './curtain-hero.css';
+import './redesign.css';
 
 export const metadata: Metadata = {
   title: 'Breno Silveira - Full Stack Developer & Creative Technologist',

@@ -190,3 +190,4 @@ img{max-width:100%}
 .case-page-cuidapet .case-hero h1{color:#67c9f1}
 .project-case-link{display:inline-block;margin:22px 0 20px;color:var(--text);font:10px var(--mono);letter-spacing:.03em;text-decoration:none;text-transform:uppercase;border-bottom:1px solid var(--accent);padding-bottom:8px;transition:color .2s,border-color .2s}
 .project-case-link:hover{color:var(--hot);border-color:var(--hot)}
+.project-visual .project-video-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}.project-visual>img{transition:transform .8s cubic-bezier(.2,.75,.25,1)}.project-visual .preview-overlay{z-index:2}

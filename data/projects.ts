@@ -16,7 +16,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: '01', slug: 'insidely', name: 'Insidely', category: 'Product / career platform',
-    description: 'Desenvolvimento de plataforma web para reduzir a frustração profissional por meio de consultoria autêntica com funcionários verificados.',
+    description: 'Plataforma web para reduzir a frustração profissional por meio de consultoria autêntica com funcionários verificados.',
     detail: 'A Insidely aproxima pessoas de funcionários verificados para oferecer conversas e perspectivas reais sobre empresas e profissões antes de uma decisão de carreira.',
     role: 'Conceito, produto, UX/UI e desenvolvimento', stack: ['Product thinking', 'UX/UI', 'React', 'Next.js', 'Supabase'],
     liveUrl: 'https://insidely.vercel.app/', previewUrl: 'https://insidely.vercel.app/', visual: 'insidely', cover: '/images/projects/insidely-home.png',
