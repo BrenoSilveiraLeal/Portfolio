@@ -16,7 +16,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: '01', slug: 'insidely', name: 'Insidely', category: 'Product / career platform',
-    description: 'Plataforma web para reduzir a frustração profissional por meio de consultoria autêntica com funcionários verificados.',
+    description: 'Plataforma web de consultas com profissionais verificados para apoio a decisões de carreira. Com o objetivo de reduzir a frustração profissional.',
     detail: 'A Insidely aproxima pessoas de funcionários verificados para oferecer conversas e perspectivas reais sobre empresas e profissões antes de uma decisão de carreira.',
     role: 'Conceito, produto, UX/UI e desenvolvimento', stack: ['Product thinking', 'UX/UI', 'React', 'Next.js', 'Supabase'],
     liveUrl: 'https://insidely.vercel.app/', previewUrl: 'https://insidely.vercel.app/', visual: 'insidely', cover: '/images/projects/insidely-preview-20261109.jpg',
@@ -37,22 +37,22 @@ export const projects: Project[] = [
   },
   {
     id: '04', slug: 'cuidapet', name: 'CuidaPet', category: 'Pet care / saúde e rotina',
-    description: 'Aplicação para tutores criarem perfis, cadastrarem seus pets, acompanharem vacinas e consultas, receberem lembretes e encontrarem dicas e produtos adequados.',
-    detail: 'Uma agenda de cuidados que reúne os perfis dos pets, a carteira de vacinação, lembretes de consultas e orientações e produtos relacionados a cada animal.',
+    description: 'Carteira de vacinação digital para pets, com dicas de cuidado, produtos indicados e ficha clínica que gera um PDF com peso, idade e o problema do animal para enviar ao veterinário.',
+    detail: 'Uma plataforma que reúne a carteira de vacinação do pet, dicas de cuidado e produtos indicados. Também permite preencher a ficha clínica, com nome, peso, idade e o problema observado, e gerar um PDF para encaminhar ao veterinário.',
     role: 'Conceito, produto, UX/UI e desenvolvimento', stack: ['Product thinking', 'UX/UI', 'Agenda e lembretes', 'Saúde animal'],
     liveUrl: 'https://cuidapetapp.vercel.app/', previewUrl: 'https://cuidapetapp.vercel.app/', visual: 'cuidapet', cover: '/images/projects/cuidapet-preview.jpg',
   },
   {
     id: '05', slug: 'decora-moveis', name: 'Decora Móveis', category: 'Móveis / e-commerce',
-    description: 'Loja digital de móveis autorais, com foco em uma experiência visual que destaca as peças, suas cores e condições de compra.',
-    detail: 'Uma vitrine online para explorar móveis com personalidade, visualizar opções de cores e encontrar os detalhes de cada peça.',
+    description: 'Loja de móveis fictícia, criada como demonstração, com vitrine de peças, cores e condições de pagamento e um fluxo completo para simular a compra.',
+    detail: 'Um e-commerce de móveis desenvolvido como demonstração. Permite explorar as peças, ver opções de cores e detalhes, e simular uma compra do início ao fim, sem venda real.',
     role: 'Conceito, UX/UI e desenvolvimento', stack: ['E-commerce', 'UX/UI', 'Front-end'],
     liveUrl: 'https://decoramoveis.vercel.app/', previewUrl: 'https://decoramoveis.vercel.app/', visual: 'decora', cover: '/images/projects/decora-moveis-preview.jpg',
   },
   {
     id: '06', slug: 'altezza', name: 'Altezza Imóveis', category: 'Imóveis / alto padrão',
-    description: 'Experiência digital para uma imobiliária exclusiva, dedicada à apresentação de casas e propriedades de alto padrão.',
-    detail: 'Uma vitrine imobiliária editorial que apresenta imóveis premium por meio de imagens amplas, informações essenciais e recursos para agendar uma visita.',
+    description: 'Imobiliária de luxo para apresentar casas de alto padrão, com imagens amplas dos ambientes por dentro e agendamento de visita. Conceito demonstrativo.',
+    detail: 'Uma vitrine imobiliária de luxo, criada como demonstração, que apresenta casas de alto padrão por dentro, com imagens amplas, informações essenciais e recursos para agendar uma visita.',
     role: 'Conceito, direção visual, UX/UI e desenvolvimento', stack: ['Real estate', 'UX/UI', 'Front-end'],
     liveUrl: 'https://altezzaimoveis.vercel.app/', previewUrl: 'https://altezzaimoveis.vercel.app/', visual: 'altezza', cover: '/images/projects/altezza.png',
   },

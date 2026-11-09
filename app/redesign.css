@@ -79,14 +79,14 @@ html,body{background:var(--ds-page)}
 .portfolio-page .project-feature{display:flex;flex-direction:column;height:100%}
 .portfolio-page .project-visual{border-radius:var(--ds-r-inner);overflow:hidden}
 .portfolio-page .project-heading,.portfolio-page .project-description,.portfolio-page .project-case-link,.portfolio-page .project-meta{margin-inline:14px}
-.portfolio-page .project-heading{min-height:66px}
+.portfolio-page .project-heading{min-height:0}
 .portfolio-page .project-category{color:var(--ds-muted)}
 .portfolio-page .project-heading h3{
   font-family:var(--sans);font-size:clamp(26px,2.2vw,32px);font-weight:800;letter-spacing:-.035em;line-height:1.1;
   color:var(--ds-ink);background:none;-webkit-text-fill-color:currentColor;
 }
 .portfolio-page .project-arrow{color:var(--ds-orange)}
-.portfolio-page .project-description{font-size:14px;line-height:1.6;color:var(--ds-body);min-height:8em}
+.portfolio-page .project-description{font-size:14px;line-height:1.6;color:var(--ds-body);min-height:0;margin-top:10px;flex:1}
 .portfolio-page .project-case-link{
   display:inline-flex;align-items:center;align-self:flex-start;gap:8px;width:max-content;padding:9px 16px;border:0;border-radius:999px;
   background:var(--ds-orange);color:var(--ds-dark);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0;text-transform:none;text-decoration:none;
@@ -94,7 +94,8 @@ html,body{background:var(--ds-page)}
 }
 .portfolio-page .project-case-link::after{display:none}
 .portfolio-page .project-case-link:hover{background:var(--ds-hot);transform:translateY(-2px)}
-.portfolio-page .project-meta{gap:8px;min-height:60px;align-content:flex-start}
+.portfolio-page .project-meta{gap:8px;min-height:0;align-content:flex-start}
+.portfolio-page .project-case-link{margin-top:14px;margin-bottom:14px}
 .portfolio-page .preview-overlay span{font-size:10px}
 
 /* ---------- serviços ---------- */
@@ -263,3 +264,8 @@ html,body{background:var(--ds-page)}
 
 /* Menu logo abaixo da cena da foto: só aparece quando a página desce, sem sobrepor a foto. */
 .portfolio-page .curtain-track + .site-header-sentinel + .site-header{margin-top:0}
+
+/* Menu centralizado na pílula, independente da largura da marca e dos links sociais */
+@media (min-width:901px){
+  .portfolio-page .main-nav{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;padding:0;width:max-content}
+}
