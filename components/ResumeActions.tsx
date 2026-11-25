@@ -27,8 +27,12 @@ export function ResumeActions({ t }: { t: ResumeLabels }) {
     <div className="cv-actions">
       <Link className="cv-back" href="/">{t.back}</Link>
       <Link className="cv-back" href={t.other.href} hrefLang={t.lang === 'en' ? 'pt-BR' : 'en'}>{t.other.label}</Link>
-      <button type="button" className="btn btn-ghost" onClick={share}>{copied ? t.copied : t.share}</button>
-      <a className="btn btn-solid" href={t.pdf} download={t.pdfName}>{t.download} <span aria-hidden="true">↓</span></a>
+      <button type="button" className="btn btn-ghost cv-icon-action" onClick={share} aria-label={copied ? t.copied : t.share} title={copied ? t.copied : t.share}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.7 10.7 6.6-4.4M8.7 13.3l6.6 4.4"/></svg><span className="cv-action-label">{copied ? t.copied : t.share}</span>
+      </button>
+      <a className="btn btn-solid cv-icon-action" href={t.pdf} download={t.pdfName} aria-label={t.download} title={t.download}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg><span className="cv-action-label">{t.download}</span>
+      </a>
     </div>
   </header>;
 }
