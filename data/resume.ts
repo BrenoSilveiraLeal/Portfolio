@@ -127,4 +127,34 @@ export const resume = {
   languages: 'Português – nativo | Inglês – intermediário (English House, 2016 – 2021)',
 };
 
+export type Resume = typeof resume;
+
 export const resumePdf = '/curriculo-breno-silveira.pdf';
+
+// Textos fixos da página/PDF em português (a versão em inglês fica em data/resume.en.ts).
+export const resumeLabels = {
+  lang: 'pt-BR',
+  docLabel: 'Currículo de Breno Silveira Leal',
+  summary: 'Resumo profissional',
+  skills: 'Competências técnicas',
+  experience: 'Experiência profissional',
+  projects: 'Projetos',
+  tech: 'Tecnologias',
+  hackathons: 'Hackathons',
+  education: 'Formação acadêmica',
+  courses: 'Cursos e certificações',
+  activities: 'Atividades complementares',
+  softSkills: 'Competências comportamentais',
+  languages: 'Idiomas',
+  back: '← Portfólio',
+  share: 'Compartilhar link',
+  copied: 'Link copiado ✓',
+  download: 'Baixar PDF',
+  shareTitle: 'Currículo — Breno Silveira',
+  path: '/curriculo',
+  pdf: resumePdf,
+  pdfName: 'Curriculo-Breno-Silveira.pdf',
+  other: { label: 'English version', href: '/resume' },
+};
+
+export type ResumeLabels = typeof resumeLabels;

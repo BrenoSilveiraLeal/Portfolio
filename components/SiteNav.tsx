@@ -35,8 +35,8 @@ export function SiteNav() {
   return <header className={`nav${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
     <a className="nav-logo nav-brand" href="#top" aria-label="Breno Silveira, início" onClick={() => setOpen(false)}>
       <span className="nav-brand-content" aria-hidden="true">
-        <span className="nav-brand-word"><span className="nav-brand-initial nav-brand-b">B</span><span className="nav-brand-rest">reno</span></span>
-        <span className="nav-brand-word nav-brand-s"><span className="nav-brand-initial">S</span><span className="nav-brand-rest">ilveira</span></span>
+        <span className="nav-brand-word"><span className="nav-brand-initial nav-brand-b">B</span><span className="nav-brand-rest"><span>reno</span></span></span>
+        <span className="nav-brand-word nav-brand-s"><span className="nav-brand-initial">S</span><span className="nav-brand-rest"><span>ilveira</span></span></span>
       </span>
     </a>
     <nav className="nav-links" aria-label="Navegação principal">

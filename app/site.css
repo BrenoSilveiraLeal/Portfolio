@@ -137,17 +137,27 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 }
 .nav.is-scrolled { background: rgba(11, 11, 12, .78); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-color: var(--line); }
 .nav-logo { font: 400 24px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; justify-self: start; }
-.nav-brand { position: relative; display: block; width: 38px; height: 28px; overflow: hidden; text-transform: none; transition: width .4s var(--ease); }
-.nav-brand-content { position: absolute; left: 0; top: 50%; display: flex; align-items: baseline; gap: .04em; white-space: nowrap; transform: translateY(-50%); transition: gap .55s var(--ease); }
-.nav-brand-word { display: inline-flex; align-items: baseline; white-space: nowrap; }
-.nav-brand-initial { display: inline-block; transform: scale(1); transform-origin: left center; transition: transform .55s var(--ease); }
+/* Logo "BS" -> "Breno Silveira". Tudo anda junto, com a mesma duração e curva:
+   "reno" e "ilveira" abrem de 0 até a largura real da palavra (grid 0fr -> 1fr),
+   então o "S" desliza no mesmo ritmo em que as letras aparecem, sem saltos. */
+.nav-brand { --brand-t: .7s; display: inline-flex; align-items: center; height: 28px; text-transform: none; }
+.nav-brand-content { display: flex; align-items: center; gap: .04em; white-space: nowrap; transition: gap var(--brand-t) var(--ease); }
+.nav-brand-word { display: inline-flex; align-items: center; white-space: nowrap; }
 .nav-brand-b, .nav-brand-word:not(.nav-brand-s) .nav-brand-rest { color: var(--text); }
 .nav-brand-s { color: var(--accent); }
-.nav-brand-rest { display: inline-block; max-width: 0; overflow: hidden; opacity: 0; white-space: nowrap; transition: max-width .55s var(--ease) .08s, opacity .25s ease .12s; }
-.nav.is-scrolled .nav-brand { width: 190px; }
+.nav-brand-rest {
+  display: inline-grid; grid-template-columns: 0fr; opacity: 0;
+  /* fechando: as letras somem logo no começo enquanto o espaço fecha */
+  transition: grid-template-columns var(--brand-t) var(--ease), opacity .3s ease;
+}
+.nav-brand-rest > span { min-width: 0; overflow: hidden; }
 .nav.is-scrolled .nav-brand-content { gap: .28em; }
-.nav.is-scrolled .nav-brand-initial { transform: scale(1.12); }
-.nav.is-scrolled .nav-brand-rest { max-width: 6em; opacity: 1; }
+.nav.is-scrolled .nav-brand-rest {
+  grid-template-columns: 1fr; opacity: 1;
+  /* abrindo: o espaço abre e as letras aparecem um pouco depois, junto com ele */
+  transition: grid-template-columns var(--brand-t) var(--ease), opacity .45s ease .15s;
+}
+@media (prefers-reduced-motion: reduce) { .nav-brand-content, .nav-brand-rest { transition: none; } }
 .nav-links { display: flex; gap: 34px; }
 .nav-links a { position: relative; font-size: 13px; color: var(--muted); transition: color .2s; padding: 6px 0; }
 .nav-links a:hover, .nav-links a.is-active { color: var(--text); }

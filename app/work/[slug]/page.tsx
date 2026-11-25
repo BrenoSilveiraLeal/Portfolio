@@ -17,8 +17,8 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
     <header className="nav is-scrolled">
       <TransitionLink className="nav-logo nav-brand" href="/" aria-label="Breno Silveira, início">
         <span className="nav-brand-content" aria-hidden="true">
-          <span className="nav-brand-word"><span className="nav-brand-b">B</span><span className="nav-brand-rest">reno</span></span>
-          <span className="nav-brand-word nav-brand-s"><span>S</span><span className="nav-brand-rest">ilveira</span></span>
+          <span className="nav-brand-word"><span className="nav-brand-b">B</span><span className="nav-brand-rest"><span>reno</span></span></span>
+          <span className="nav-brand-word nav-brand-s"><span>S</span><span className="nav-brand-rest"><span>ilveira</span></span></span>
         </span>
       </TransitionLink>
       <TransitionLink className="nav-cta" href="/#work">← Todos os projetos</TransitionLink>
