@@ -34,8 +34,10 @@ export function SiteNav() {
 
   return <header className={`nav${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
     <a className="nav-logo nav-brand" href="#top" aria-label="Breno Silveira, início" onClick={() => setOpen(false)}>
-      <span className="nav-brand-mark" aria-hidden="true">BS</span>
-      <span className="nav-brand-full" aria-hidden="true"><span>Breno</span><span className="nav-brand-accent">Silveira</span></span>
+      <span className="nav-brand-content" aria-hidden="true">
+        <span className="nav-brand-word"><span className="nav-brand-initial nav-brand-b">B</span><span className="nav-brand-rest">reno</span></span>
+        <span className="nav-brand-word nav-brand-s"><span className="nav-brand-initial">S</span><span className="nav-brand-rest">ilveira</span></span>
+      </span>
     </a>
     <nav className="nav-links" aria-label="Navegação principal">
       {links.map((l) => <a key={l.id} href={l.href} className={active === l.id ? 'is-active' : ''} onClick={() => setOpen(false)}>{l.label}</a>)}

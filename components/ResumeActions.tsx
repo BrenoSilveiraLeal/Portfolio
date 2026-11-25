@@ -19,8 +19,10 @@ export function ResumeActions() {
 
   return <header className="nav is-scrolled cv-toolbar">
     <Link className="nav-logo nav-brand" href="/" aria-label="Breno Silveira, início">
-      <span className="nav-brand-mark" aria-hidden="true">BS</span>
-      <span className="nav-brand-full" aria-hidden="true"><span>Breno</span><span className="nav-brand-accent">Silveira</span></span>
+      <span className="nav-brand-content" aria-hidden="true">
+        <span className="nav-brand-word"><span className="nav-brand-initial nav-brand-b">B</span><span className="nav-brand-rest">reno</span></span>
+        <span className="nav-brand-word nav-brand-s"><span className="nav-brand-initial">S</span><span className="nav-brand-rest">ilveira</span></span>
+      </span>
     </Link>
     <div className="cv-actions">
       <Link className="cv-back" href="/">← Portfólio</Link>

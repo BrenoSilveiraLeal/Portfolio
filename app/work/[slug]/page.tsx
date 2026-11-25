@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProject, projects } from '@/data/projects';
 import { ProjectVisual } from '@/components/ProjectVisual';
+import { TransitionLink } from '@/components/TransitionLink';
 
 export function generateStaticParams() { return projects.map(({ slug }) => ({ slug })); }
 
@@ -15,11 +15,13 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
   return <main className="site case">
     <header className="nav is-scrolled">
-      <Link className="nav-logo nav-brand" href="/" aria-label="Breno Silveira, início">
-        <span className="nav-brand-mark" aria-hidden="true">BS</span>
-        <span className="nav-brand-full" aria-hidden="true"><span>Breno</span><span className="nav-brand-accent">Silveira</span></span>
-      </Link>
-      <Link className="nav-cta" href="/#work">← Todos os projetos</Link>
+      <TransitionLink className="nav-logo nav-brand" href="/" aria-label="Breno Silveira, início">
+        <span className="nav-brand-content" aria-hidden="true">
+          <span className="nav-brand-word"><span className="nav-brand-b">B</span><span className="nav-brand-rest">reno</span></span>
+          <span className="nav-brand-word nav-brand-s"><span>S</span><span className="nav-brand-rest">ilveira</span></span>
+        </span>
+      </TransitionLink>
+      <TransitionLink className="nav-cta" href="/#work">← Todos os projetos</TransitionLink>
     </header>
 
     <section className="case-hero">
@@ -39,15 +41,15 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       <div><h2 className="col-title">Tecnologias e áreas</h2><ul className="chips">{project.stack.map((s) => <li key={s}>{s}</li>)}</ul></div>
     </section>
 
-    <Link className="case-next" href={`/work/${nextProject.slug}`}>
+    <TransitionLink className="case-next" href={`/work/${nextProject.slug}`}>
       <span className="label">Próximo projeto · {nextProject.id}</span>
       <span className="display">{nextProject.name} <i>→</i></span>
-    </Link>
+    </TransitionLink>
 
     <footer className="footer">
-      <Link className="footer-logo" href="/">Breno Silveira<i>.</i></Link>
+      <TransitionLink className="footer-logo" href="/">Breno Silveira<i>.</i></TransitionLink>
       <p className="label">© 2026 Breno Silveira</p>
-      <nav className="footer-links" aria-label="Navegação"><Link href="/#work">Projetos</Link><Link href="/#contact">Contato</Link></nav>
+      <nav className="footer-links" aria-label="Navegação"><TransitionLink href="/#work">Projetos</TransitionLink><TransitionLink href="/#contact">Contato</TransitionLink></nav>
     </footer>
   </main>;
 }

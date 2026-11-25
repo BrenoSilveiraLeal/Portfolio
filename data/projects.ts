@@ -13,7 +13,7 @@ export type Project = {
   cover?: string;
 };
 
-export const projects: Project[] = [
+const projectCatalog: Project[] = [
   {
     id: '01', slug: 'insidely', name: 'Insidely', category: 'Product / career platform',
     description: 'Plataforma web de consultas com profissionais verificados para apoio a decisões de carreira com o objetivo de reduzir a frustração profissional.',
@@ -87,11 +87,11 @@ export const projects: Project[] = [
   },
 
   {
-    id: '10', slug: 'vertice', name: 'Vértice', category: 'Gestão empresarial / CRM e ERP',
-    description: 'Plataforma demonstrativa de gestão empresarial que reúne recursos de CRM e ERP em um só lugar.',
-    detail: 'Um sistema demonstrativo para apoiar a gestão de empresas, combinando o acompanhamento do relacionamento com clientes (CRM) e processos de gestão empresarial (ERP).',
-    role: 'Conceito, UX/UI e desenvolvimento', stack: ['CRM', 'ERP', 'Gestão empresarial', 'UX/UI'],
-    liveUrl: 'https://verticegestao.vercel.app/', previewUrl: 'https://verticegestao.vercel.app/', visual: 'vertice', cover: '/images/projects/vertice-preview.jpg',
+    id: '10', slug: 'luma-perfumaria', name: 'Luma Perfumaria', category: 'Beleza / perfumaria',
+    description: 'Loja demonstrativa de perfumes com informações sobre fragrâncias e materiais utilizados.',
+    detail: 'Uma experiência de e-commerce para explorar perfumes e conhecer detalhes das fragrâncias e dos materiais utilizados em cada produto.',
+    role: 'Conceito, UX/UI e desenvolvimento', stack: ['E-commerce', 'Perfumaria', 'Fragrâncias', 'UX/UI'],
+    liveUrl: 'https://lumaperfumaria.vercel.app/', previewUrl: 'https://lumaperfumaria.vercel.app/', visual: 'luma', cover: '/images/projects/luma-preview.jpg',
   },
 
   {
@@ -111,11 +111,11 @@ export const projects: Project[] = [
   },
 
   {
-    id: '13', slug: 'luma-perfumaria', name: 'Luma Perfumaria', category: 'Beleza / perfumaria',
-    description: 'Loja demonstrativa de perfumes com informações sobre fragrâncias e materiais utilizados.',
-    detail: 'Uma experiência de e-commerce para explorar perfumes e conhecer detalhes das fragrâncias e dos materiais utilizados em cada produto.',
-    role: 'Conceito, UX/UI e desenvolvimento', stack: ['E-commerce', 'Perfumaria', 'Fragrâncias', 'UX/UI'],
-    liveUrl: 'https://lumaperfumaria.vercel.app/', previewUrl: 'https://lumaperfumaria.vercel.app/', visual: 'luma', cover: '/images/projects/luma-preview.jpg',
+    id: '13', slug: 'vertice', name: 'Vértice', category: 'Gestão empresarial / CRM e ERP',
+    description: 'Plataforma demonstrativa de gestão empresarial que reúne recursos de CRM e ERP em um só lugar.',
+    detail: 'Um sistema demonstrativo para apoiar a gestão de empresas, combinando o acompanhamento do relacionamento com clientes (CRM) e processos de gestão empresarial (ERP).',
+    role: 'Conceito, UX/UI e desenvolvimento', stack: ['CRM', 'ERP', 'Gestão empresarial', 'UX/UI'],
+    liveUrl: 'https://verticegestao.vercel.app/', previewUrl: 'https://verticegestao.vercel.app/', visual: 'vertice', cover: '/images/projects/vertice-preview.jpg',
   },
 
   {
@@ -134,6 +134,29 @@ export const projects: Project[] = [
     liveUrl: 'https://github.com/BrenoSilveiraLeal/Chatbot-Casa-da-Inovacao', visual: 'chatbot', cover: '/images/projects/chatbot-casa-da-inovacao-preview.jpg',
   },
 ];
+
+const projectOrder = [
+  'insidely',
+  'casa-da-inovacao',
+  'atlas',
+  'saborama-motion',
+  'hypix',
+  'voyagetrip',
+  'aureon',
+  'altezza',
+  'inovatech',
+  'luma-perfumaria',
+  'decora-moveis',
+  'cuidapet',
+  'vertice',
+  'finaxis',
+  'chatbot-casa-da-inovacao',
+];
+
+export const projects: Project[] = projectOrder.flatMap((slug, index) => {
+  const project = projectCatalog.find((item) => item.slug === slug);
+  return project ? [{ ...project, id: String(index + 1).padStart(2, '0') }] : [];
+});
 
 const homepageProjectSlugs = ['insidely', 'casa-da-inovacao', 'atlas', 'saborama-motion', 'hypix', 'voyagetrip'];
 export const featuredProjects = homepageProjectSlugs.flatMap((slug) => {

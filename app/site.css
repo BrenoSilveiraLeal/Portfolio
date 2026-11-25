@@ -41,7 +41,8 @@ body {
 img, video { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; color: inherit; }
-.site { overflow-x: clip; }
+.site { overflow-x: clip; transition: opacity .17s ease, transform .17s var(--ease); }
+.route-leaving .site { opacity: 0; transform: translateY(-8px); }
 ul, ol { list-style: none; margin: 0; padding: 0; }
 h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 ::selection { background: var(--accent); color: #fff; }
@@ -113,13 +114,16 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 .nav.is-scrolled { background: rgba(11, 11, 12, .78); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-color: var(--line); }
 .nav-logo { font: 400 24px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; justify-self: start; }
 .nav-brand { position: relative; display: block; width: 38px; height: 28px; overflow: hidden; text-transform: none; transition: width .4s var(--ease); }
-.nav-brand-mark, .nav-brand-full { position: absolute; left: 0; top: 50%; white-space: nowrap; transform: translateY(-50%); }
-.nav-brand-mark { opacity: 1; transition: opacity .18s ease, transform .35s var(--ease); }
-.nav-brand-full { display: flex; gap: .24em; opacity: 0; clip-path: inset(0 100% 0 0); transition: opacity .2s ease, clip-path .4s var(--ease); }
-.nav-brand-accent { color: var(--accent); }
+.nav-brand-content { position: absolute; left: 0; top: 50%; display: flex; align-items: baseline; gap: .04em; white-space: nowrap; transform: translateY(-50%); transition: gap .55s var(--ease); }
+.nav-brand-word { display: inline-flex; align-items: baseline; white-space: nowrap; }
+.nav-brand-initial { display: inline-block; transform: scale(1); transform-origin: left center; transition: transform .55s var(--ease); }
+.nav-brand-b, .nav-brand-word:not(.nav-brand-s) .nav-brand-rest { color: var(--text); }
+.nav-brand-s { color: var(--accent); }
+.nav-brand-rest { display: inline-block; max-width: 0; overflow: hidden; opacity: 0; white-space: nowrap; transition: max-width .55s var(--ease) .08s, opacity .25s ease .12s; }
 .nav.is-scrolled .nav-brand { width: 190px; }
-.nav.is-scrolled .nav-brand-mark { opacity: 0; transform: translateY(-50%) scale(1.2); }
-.nav.is-scrolled .nav-brand-full { opacity: 1; clip-path: inset(0); }
+.nav.is-scrolled .nav-brand-content { gap: .28em; }
+.nav.is-scrolled .nav-brand-initial { transform: scale(1.12); }
+.nav.is-scrolled .nav-brand-rest { max-width: 6em; opacity: 1; }
 .nav-links { display: flex; gap: 34px; }
 .nav-links a { position: relative; font-size: 13px; color: var(--muted); transition: color .2s; padding: 6px 0; }
 .nav-links a:hover, .nav-links a.is-active { color: var(--text); }
@@ -390,6 +394,12 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 /* ---------- Página de projeto ---------- */
 
 .case .nav { grid-template-columns: 1fr auto; }
+.case-hero, .case-art, .case-story, .case-next, .case > .footer { animation: case-screen-enter .55s var(--ease) both; }
+.case-art { animation-delay: .04s; }
+.case-story { animation-delay: .08s; }
+.case-next { animation-delay: .12s; }
+.case > .footer { animation-delay: .16s; }
+@keyframes case-screen-enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 .case .nav .nav-cta { display: inline-flex; }
 .case .case-hero { padding: 160px var(--pad) 56px; max-width: var(--max); margin: 0 auto; display: grid; gap: 24px; }
 .case .case-hero .display { font-size: clamp(56px, 10vw, 168px); }
@@ -453,6 +463,10 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
   .tabs button { white-space: nowrap; }
   .search { min-width: 0; }
   .wf-note { display: none; }
+  .footer { justify-items: center; gap: 16px; padding-block: 28px; text-align: center; }
+  .footer-logo, .footer-links { justify-self: center; }
+  .footer .label { max-width: 35ch; line-height: 1.6; }
+  .footer-links { justify-content: center; flex-wrap: wrap; gap: 16px 20px; }
 }
 
 /* Cards: descrição e links */

@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import { SiteNav } from '@/components/SiteNav';
 import { Hero } from '@/components/Hero';
 import { ProjectGrid } from '@/components/ProjectGrid';
+import { TransitionLink } from '@/components/TransitionLink';
 import { DraftToLive } from '@/components/DraftToLive';
 import { MotionLayer } from '@/components/MotionLayer';
 import { Loader } from '@/components/Loader';
@@ -67,7 +67,7 @@ export default function Home() {
         <h2 id="draft-title" className="display">Do rascunho<br /><em>ao ar.</em></h2>
         <p>Todo projeto começa como caixas cinzas e anotações. Arraste o controle para ver o rascunho da Insidely virar a página que está publicada hoje.</p>
         <p className="label">Insidely · Plataforma de carreira · Produto, UX/UI e desenvolvimento</p>
-        <Link className="link" href="/work/insidely">Ver o case completo <span aria-hidden="true">↗</span></Link>
+        <TransitionLink className="link" href="/work/insidely">Ver o case completo <span aria-hidden="true">↗</span></TransitionLink>
       </div>
       <div data-motion="up"><DraftToLive /></div>
     </section>

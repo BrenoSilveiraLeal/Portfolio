@@ -1,10 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { featuredProjects, projects, type Project } from '@/data/projects';
 import { groupBySlug, projectGroups, type ProjectGroup } from '@/data/site';
 import { ProjectVisual } from './ProjectVisual';
+import { TransitionLink } from './TransitionLink';
 
 type Filter = 'destaques' | 'todos' | ProjectGroup;
 
@@ -12,19 +12,19 @@ const normalize = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLo
 
 function ProjectCard({ project }: { project: Project }) {
   return <article className="card">
-    <Link href={`/work/${project.slug}`} className="card-media" aria-label={`Ver detalhes do projeto ${project.name}`}>
+    <TransitionLink href={`/work/${project.slug}`} className="card-media" aria-label={`Ver detalhes do projeto ${project.name}`}>
       <ProjectVisual project={project} />
-    </Link>
+    </TransitionLink>
     <div className="card-body">
       <span className="card-number" aria-hidden="true">{project.id}</span>
       <div className="card-text">
-        <h3><Link href={`/work/${project.slug}`}>{project.name}</Link></h3>
+        <h3><TransitionLink href={`/work/${project.slug}`}>{project.name}</TransitionLink></h3>
         <p className="label">{project.category}</p>
       </div>
     </div>
     <p className="card-desc">{project.description}</p>
     <div className="card-links">
-      <Link href={`/work/${project.slug}`}>Conhecer o projeto <span aria-hidden="true">→</span></Link>
+      <TransitionLink href={`/work/${project.slug}`}>Conhecer o projeto <span aria-hidden="true">→</span></TransitionLink>
       {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer">{project.liveUrl.includes('github.com') ? 'Ver no GitHub' : 'Abrir site'} <span aria-hidden="true">↗</span></a>}
     </div>
   </article>;
