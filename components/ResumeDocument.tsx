@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Resume, ResumeLabels } from '@/data/resume';
 import { ResumeActions } from './ResumeActions';
+import { ResumeFit, fitScript } from './ResumeFit';
 
 // Coluna única e seções com nomes padrão para leitura correta por sistemas ATS.
 // O currículo é dividido em duas folhas A4: o que aparece no site é exatamente o que sai no PDF.
@@ -74,7 +75,7 @@ export function ResumeDocument({ r, t }: { r: Resume; t: ResumeLabels }) {
     <ResumeActions t={t} />
 
     <article className="cv-doc" aria-label={t.docLabel}>
-      <div className="cv-paper cv-sheet">
+      <div className="cv-slot"><div className="cv-paper cv-sheet">
         <header className="cv-head">
           <h1>{r.name}</h1>
           <p className="cv-role">{r.role}</p>
@@ -86,12 +87,14 @@ export function ResumeDocument({ r, t }: { r: Resume; t: ResumeLabels }) {
         </header>
         {PAGE_1.map((k) => sections[k])}
         <span className="cv-folio" aria-hidden="true">1 / 2</span>
-      </div>
+      </div></div>
 
-      <div className="cv-paper cv-sheet">
+      <div className="cv-slot"><div className="cv-paper cv-sheet">
         {PAGE_2.map((k) => sections[k])}
         <span className="cv-folio" aria-hidden="true">2 / 2</span>
-      </div>
+      </div></div>
     </article>
+    <script dangerouslySetInnerHTML={{ __html: fitScript }} />
+    <ResumeFit />
   </main>;
 }
