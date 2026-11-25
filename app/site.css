@@ -22,10 +22,19 @@
   --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
   --script: 'Caveat', 'Segoe Script', cursive;
 
-  --pad: clamp(18px, 3vw, 48px);
+  --pad: clamp(18px, calc(3 * var(--vw)), 48px);
   --max: 100%;
   --ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* Unidades de viewport do site. Em telas de computador o script em
+     app/layout.tsx liga a classe .fit: a página é desenhada sempre com
+     1360px de largura (a tela de referência) e o zoom a amplia ou reduz
+     para a janela real, então a composição fica igual em qualquer monitor.
+     Nesse modo --vw/--vh passam a valer em pixels do desenho. */
+  --vw: 1vw;
+  --vh: 1svh;
 }
+html.fit { zoom: var(--fit-zoom, 1); --vw: var(--fit-vw, 1vw); --vh: var(--fit-vh, 1svh); }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 84px; scrollbar-width: none; }
@@ -43,6 +52,21 @@ a { color: inherit; text-decoration: none; }
 button, input { font: inherit; color: inherit; }
 .site { overflow-x: clip; transition: opacity .17s ease, transform .17s var(--ease); }
 .route-leaving .site { opacity: 0; transform: translateY(-8px); }
+
+/* Transição entre telas (View Transitions). A imagem do card clicado ganha o
+   nome project-media (em components/TransitionLink.tsx) e se transforma na capa
+   .case-art da página do projeto; o resto da tela sai para cima e a nova entra. */
+.case-art { view-transition-name: project-media; }
+.vt-running .case-art { animation: none; }
+::view-transition-group(project-media) { animation-duration: .7s; animation-timing-function: cubic-bezier(.7, 0, .2, 1); z-index: 2; }
+::view-transition-old(project-media), ::view-transition-new(project-media) { height: 100%; width: 100%; object-fit: cover; object-position: top; animation-duration: .7s; }
+::view-transition-old(root) { animation: vt-leave .45s cubic-bezier(.7, 0, .2, 1) both; }
+::view-transition-new(root) { animation: vt-enter .6s cubic-bezier(.2, .7, .2, 1) .12s both; }
+@keyframes vt-leave { to { opacity: 0; transform: translateY(-24px) scale(.985); } }
+@keyframes vt-enter { from { opacity: 0; transform: translateY(32px); } }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
 ul, ol { list-style: none; margin: 0; padding: 0; }
 h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 ::selection { background: var(--accent); color: #fff; }
@@ -60,7 +84,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 .label b { color: var(--accent); font-weight: 500; }
 
 .display {
-  font: 400 clamp(44px, 6.4vw, 104px)/.92 var(--display);
+  font: 400 clamp(44px, calc(6.4 * var(--vw)), 104px)/.92 var(--display);
   text-transform: uppercase;
   letter-spacing: .005em;
 }
@@ -143,9 +167,9 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
    tamanho de janela. Em celular/tela em pé, vira uma coluna (ver media query). */
 
 .hero {
-  --u: min(calc(100vw / 1440), calc(100svh / 900));
+  --u: min(calc(calc(100 * var(--vw)) / 1440), calc(calc(100 * var(--vh)) / 900));
   position: relative; isolation: isolate;
-  height: 100svh; min-height: 480px;
+  height: calc(100 * var(--vh)); min-height: 480px;
   overflow: hidden;
   background: radial-gradient(60% 55% at 50% 62%, rgba(240, 65, 46, .16), transparent 70%), var(--bg);
 }
@@ -225,8 +249,8 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 
 /* ---------- Seções ---------- */
 
-.section { padding: clamp(96px, 12vw, 168px) var(--pad) 0; max-width: var(--max); margin: 0 auto; }
-.section-head { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px 64px; align-items: end; margin-bottom: clamp(40px, 5vw, 64px); }
+.section { padding: clamp(96px, calc(12 * var(--vw)), 168px) var(--pad) 0; max-width: var(--max); margin: 0 auto; }
+.section-head { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px 64px; align-items: end; margin-bottom: clamp(40px, calc(5 * var(--vw)), 64px); }
 .section-head .label { margin-bottom: 20px; }
 .section-intro { color: var(--muted); font-size: 16px; max-width: 46ch; justify-self: end; }
 .section-intro strong { color: var(--text); font-weight: 500; }
@@ -288,7 +312,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 .project-asset-needed strong { font: 400 28px/1 var(--display); text-transform: uppercase; }
 
 /* Ferramentas */
-.tools { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: center; margin-top: clamp(80px, 9vw, 120px); padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.tools { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: center; margin-top: clamp(80px, calc(9 * var(--vw)), 120px); padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .tools .label b { color: var(--text); }
 .tools-track { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .tools-row { display: flex; width: max-content; animation: marquee 38s linear infinite; }
@@ -298,9 +322,9 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* Do rascunho ao ar */
-.draft { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
+.draft { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: clamp(40px, calc(6 * var(--vw)), 96px); align-items: center; }
 .draft-copy { display: grid; gap: 22px; justify-items: start; }
-.draft-copy .display { font-size: clamp(44px, 5vw, 80px); }
+.draft-copy .display { font-size: clamp(44px, calc(5 * var(--vw)), 80px); }
 .draft-copy > p:not(.label) { color: var(--muted); max-width: 40ch; }
 .draft-copy .label:not(:first-child) { color: var(--dim); }
 
@@ -333,7 +357,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 .wf-media svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: #2e2e33; stroke-width: .6; }
 .wf-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4%; }
 .wf-cards span { height: 46px; border-style: dashed; }
-.wf-note { position: absolute; font: 600 clamp(14px, 1.5vw, 22px)/1 var(--script); color: var(--accent-2); white-space: nowrap; }
+.wf-note { position: absolute; font: 600 clamp(14px, calc(1.5 * var(--vw)), 22px)/1 var(--script); color: var(--accent-2); white-space: nowrap; }
 .wf-note-a { top: 15%; left: 18%; transform: rotate(-4deg); }
 .wf-note-b { top: 61%; left: 36%; transform: rotate(3deg); }
 .wf-note-c { bottom: 3%; right: 8%; transform: rotate(-2deg); }
@@ -362,14 +386,14 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 }
 .quote-card::after { content: ''; position: absolute; right: -30%; bottom: -40%; width: 90%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(rgba(255, 255, 255, .14), transparent 65%); pointer-events: none; }
 .quote-mark { font: 400 96px/.6 var(--display); height: 40px; }
-.quote-card blockquote { font: 400 clamp(26px, 2.3vw, 34px)/1.05 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.quote-card blockquote { font: 400 clamp(26px, calc(2.3 * var(--vw)), 34px)/1.05 var(--display); text-transform: uppercase; letter-spacing: .01em; }
 .quote-card figcaption { display: flex; justify-content: space-between; align-items: end; gap: 16px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .3); }
 .signature { font: 700 38px/1 var(--script); transform: rotate(-5deg); }
 .quote-card .label { color: #fff; }
 .quote-card .label:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* Contato */
-.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(40px, 7vw, 120px); align-items: start; padding-bottom: clamp(96px, 10vw, 140px); }
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(40px, calc(7 * var(--vw)), 120px); align-items: start; padding-bottom: clamp(96px, calc(10 * var(--vw)), 140px); }
 .contact-lead { display: grid; gap: 24px; justify-items: start; }
 .contact-lead > p:not(.label) { color: var(--muted); max-width: 44ch; }
 .channels { border-top: 1px solid var(--line); }
@@ -402,7 +426,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 @keyframes case-screen-enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 .case .nav .nav-cta { display: inline-flex; }
 .case .case-hero { padding: 160px var(--pad) 56px; max-width: var(--max); margin: 0 auto; display: grid; gap: 24px; }
-.case .case-hero .display { font-size: clamp(56px, 10vw, 168px); }
+.case .case-hero .display { font-size: clamp(56px, calc(10 * var(--vw)), 168px); }
 .case-intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; padding-top: 28px; border-top: 1px solid var(--line); }
 .case-intro p { color: var(--muted); font-size: 18px; max-width: 60ch; }
 .case-art { padding: 0 var(--pad); max-width: var(--max); margin: 0 auto; }
@@ -411,7 +435,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 .case-story > div { border-top: 1px solid var(--line); padding-top: 24px; }
 .case-story p { color: var(--muted); }
 .case-next { display: grid; gap: 14px; padding: 64px var(--pad); border-top: 1px solid var(--line); max-width: var(--max); margin: 0 auto; }
-.case-next .display { font-size: clamp(44px, 7vw, 112px); transition: color .25s; }
+.case-next .display { font-size: clamp(44px, calc(7 * var(--vw)), 112px); transition: color .25s; }
 .case-next:hover .display { color: var(--accent); }
 .case-next i { display: inline-block; transition: transform .3s var(--ease); }
 .case-next:hover i { transform: translateX(12px); }
@@ -519,16 +543,16 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
   .hero-left, .hero-right { position: relative; top: auto; left: auto; right: auto; transform: none; width: auto; }
   .hero-left { max-width: 560px; z-index: 3; }
   .hero-portrait { position: relative; left: auto; transform: none; width: min(100%, 560px); margin: 24px auto -24px; }
-  .hero-word { top: -6%; font-size: min(26vw, 150px); }
-  .hero-hello { font-size: clamp(28px, 7vw, 38px); }
-  .hero-name { font-size: clamp(60px, 17vw, 120px); }
-  .hero-role { font-size: clamp(18px, 4.6vw, 24px); }
+  .hero-word { top: -6%; font-size: min(calc(26 * var(--vw)), 150px); }
+  .hero-hello { font-size: clamp(28px, calc(7 * var(--vw)), 38px); }
+  .hero-name { font-size: clamp(60px, calc(17 * var(--vw)), 120px); }
+  .hero-role { font-size: clamp(18px, calc(4.6 * var(--vw)), 24px); }
   .hero-copy { font-size: 15px; }
   .hero-actions .btn { height: 48px; padding: 0 22px; font-size: 12px; }
   .hero-right { padding: 40px 0 8px; }
   .hero-stats { grid-template-columns: repeat(3, 1fr); border: 0; gap: 12px; }
   .hero-stats div { flex-direction: column; align-items: flex-start; gap: 6px; border-top: 1px solid var(--line); border-bottom: 0; }
-  .hero-stats dd { font-size: clamp(40px, 11vw, 56px); }
+  .hero-stats dd { font-size: clamp(40px, calc(11 * var(--vw)), 56px); }
   .hero-stats dt { text-align: left; }
 }
 @media (max-width: 640px) { .hero-actions .btn { flex: 1; justify-content: center; } }
@@ -544,7 +568,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 /* ==========================================================================
    Currículo (/curriculo) — folha clara A4 na tela e no PDF
    ========================================================================== */
-.cv-page { min-height: 100vh; padding: 104px var(--pad) 72px; background: radial-gradient(60% 40% at 50% 0%, rgba(240, 65, 46, .12), transparent 70%), var(--bg); }
+.cv-page { min-height: calc(100 * var(--vh)); padding: 104px var(--pad) 72px; background: radial-gradient(60% 40% at 50% 0%, rgba(240, 65, 46, .12), transparent 70%), var(--bg); }
 .cv-toolbar { grid-template-columns: 1fr auto; }
 .cv-actions { display: flex; align-items: center; gap: 10px; }
 .cv-actions .btn { height: 40px; padding: 0 16px; font-size: 11px; }
@@ -599,6 +623,7 @@ h1, h2, h3, p, figure, blockquote, dl, dd { margin: 0; }
 
 @page { size: A4; margin: 0; }
 @media print {
+  html, html.fit { zoom: 1; --vw: 1vw; --vh: 1vh; }
   html, body { background: #fff; }
   .cv-toolbar { display: none; }
   .cv-page { padding: 0; background: none; min-height: 0; }
@@ -618,7 +643,7 @@ html.skip-loader .loader { display: none; }
 .loader {
   position: fixed; inset: 0; z-index: 100;
   display: grid; grid-template-rows: auto 1fr auto;
-  padding: 26px var(--pad) clamp(24px, 4vh, 44px);
+  padding: 26px var(--pad) clamp(24px, calc(4 * var(--vh)), 44px);
   background: radial-gradient(50% 50% at 20% 100%, rgba(240, 65, 46, .14), transparent 70%), var(--bg);
   animation: loaderCount 1.7s cubic-bezier(.25, .7, .3, 1) forwards;
   transition: transform .9s cubic-bezier(.76, 0, .24, 1), --p .4s var(--ease);
@@ -634,7 +659,7 @@ html.skip-loader .loader { display: none; }
 .is-done .loader-step::after, .is-leaving .loader-step::after { content: 'No ar.'; animation: none; }
 @keyframes loaderSteps { 0% { content: 'Abrindo o rascunho…'; } 30% { content: 'Carregando projetos…'; } 60% { content: 'Compilando ideias…'; } 85% { content: 'Subindo pro ar…'; } 100% { content: 'Subindo pro ar…'; } }
 .loader-bottom { display: grid; gap: 18px; }
-.loader-count { font: 400 clamp(110px, 22vw, 300px)/.8 var(--display); color: var(--accent); letter-spacing: -.01em; font-variant-numeric: tabular-nums; counter-reset: p var(--p); }
+.loader-count { font: 400 clamp(110px, calc(22 * var(--vw)), 300px)/.8 var(--display); color: var(--accent); letter-spacing: -.01em; font-variant-numeric: tabular-nums; counter-reset: p var(--p); }
 .loader-count::before { content: counter(p, decimal-leading-zero); }
 .loader-count small { font-size: .28em; color: var(--muted); margin-left: .1em; vertical-align: top; }
 .loader-bar { position: relative; height: 2px; background: var(--line); }

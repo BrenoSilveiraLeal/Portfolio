@@ -27,8 +27,13 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="pt-BR" suppressHydrationWarning>
     <head>
+      {/* Tela de referência: o site é desenhado para 1360px de largura. Em telas de
+          computador (mais largas que 1100px e deitadas) a página inteira recebe um zoom
+          proporcional, então fica idêntica em qualquer monitor. Celular e tablet em pé
+          continuam com o layout responsivo. Ver html.fit em app/site.css. */}
+      <script dangerouslySetInnerHTML={{ __html: "(function(){var B=1360,d=document.documentElement;function f(){var w=window.innerWidth,h=window.innerHeight,on=w>1100&&w>h;d.classList.toggle('fit',on);if(on){var z=w/B;d.style.setProperty('--fit-zoom',String(z));d.style.setProperty('--fit-vw',B/100+'px');d.style.setProperty('--fit-vh',h/z/100+'px')}}f();window.addEventListener('resize',f)})()" }} />
       {/* Pula a tela de carregamento se o visitante já viu nesta sessão. */}
-      <script dangerouslySetInnerHTML={{ __html: "try{if(sessionStorage.getItem('bs-loaded'))document.documentElement.classList.add('skip-loader','is-loaded')}catch(e){}" }} />
+      <script dangerouslySetInnerHTML={{ __html: "try{history.scrollRestoration='manual'}catch(e){}window.addEventListener('pageshow',()=>window.scrollTo(0,0),{once:true});try{if(sessionStorage.getItem('bs-loaded'))document.documentElement.classList.add('skip-loader','is-loaded')}catch(e){}" }} />
       <noscript><style>{'.loader{display:none!important}.hero *{animation-play-state:running!important}'}</style></noscript>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
