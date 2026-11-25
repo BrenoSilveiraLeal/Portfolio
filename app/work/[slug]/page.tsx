@@ -15,7 +15,10 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
   return <main className="site case">
     <header className="nav is-scrolled">
-      <Link className="nav-logo" href="/">Breno<i>.</i></Link>
+      <Link className="nav-logo nav-brand" href="/" aria-label="Breno Silveira, início">
+        <span className="nav-brand-mark" aria-hidden="true">BS</span>
+        <span className="nav-brand-full" aria-hidden="true"><span>Breno</span><span className="nav-brand-accent">Silveira</span></span>
+      </Link>
       <Link className="nav-cta" href="/#work">← Todos os projetos</Link>
     </header>
 

@@ -18,7 +18,10 @@ export function ResumeActions() {
   };
 
   return <header className="nav is-scrolled cv-toolbar">
-    <Link className="nav-logo" href="/">Breno<i>.</i></Link>
+    <Link className="nav-logo nav-brand" href="/" aria-label="Breno Silveira, início">
+      <span className="nav-brand-mark" aria-hidden="true">BS</span>
+      <span className="nav-brand-full" aria-hidden="true"><span>Breno</span><span className="nav-brand-accent">Silveira</span></span>
+    </Link>
     <div className="cv-actions">
       <Link className="cv-back" href="/">← Portfólio</Link>
       <button type="button" className="btn btn-ghost" onClick={share}>{copied ? 'Link copiado ✓' : 'Compartilhar link'}</button>

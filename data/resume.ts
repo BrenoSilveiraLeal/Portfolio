@@ -33,7 +33,7 @@ export const resume = {
 
   experience: [
     {
-      role: 'Professor de Robótica, Programação e Informática', org: 'Casa da Renovação – Instituto Bem Viver / UniRio', place: 'Teresópolis, RJ', period: 'Out/2025 – Atual',
+      role: 'Professor de Robótica, Programação e Informática', org: 'Casa da Inovação – Instituto Bem Viver / UniRio', place: 'Teresópolis, RJ', period: 'Out/2025 – Atual',
       bullets: [
         'Planejo e ministro aulas práticas de programação, robótica e informática para turmas de diferentes idades e níveis.',
         'Desenvolvo atividades com Arduino e Tinkercad que trabalham lógica e resolução de problemas na prática.',
@@ -68,7 +68,7 @@ export const resume = {
       ],
     },
     {
-      name: 'A.T.L.A.S (antigo Aeternum) – Plataforma de investimentos com IA', href: 'https://atlasagent.vercel.app', url: 'atlasagent.vercel.app',
+      name: 'A.T.L.A.S – Plataforma de investimentos com IA', href: 'https://atlasagent.vercel.app', url: 'atlasagent.vercel.app',
       stack: 'Python, FastAPI, SQLAlchemy, SQLite, Next.js, TypeScript, Gemini, MetaTrader 5',
       bullets: [
         'Criei um ecossistema multiagente de IA que analisa gráficos, estatísticas e notícias do mercado para orientar decisões de compra e venda de ações.',
@@ -103,11 +103,18 @@ export const resume = {
 
   courses: [
     'Imersão Dev com Google Gemini, 10ª edição – Alura (2025)',
-    'Bootcamp Fullstack Java + Angular – DIO / Santander (2023)',
+    'Curso de Python – Santander Open Academy (em andamento)',
+    'Cursor com Python: Desenvolvimento inteligente com IA – Santander Open Academy (em andamento)',
+    'Domine IA com Gemini – Santander Open Academy (em andamento)',
+    'Santander Bootcamp 2023 – Fullstack Java + Angular – DIO / Santander (2023)',
     'Fundamentos de LGPD – Santander (2023)',
-    'Programador de Sistemas C#, Redes de Computadores, Operador de Computador e Montagem e Manutenção – FAETEC (2023)',
-    'JavaScript (2021–2022) e Delphi (2022) – Tech4Me',
-    'Python; Cursor com Python; Domine IA com Gemini – Santander Open Academy (em andamento)',
+    'Programador de Sistemas C# – FAETEC (2023)',
+    'Redes de Computadores – FAETEC (2023)',
+    'Operador de Computador – FAETEC (2023)',
+    'Montagem e Manutenção de Computador – FAETEC (2023)',
+    'Curso de JavaScript – Tech4Me (2021 – 2022)',
+    'Curso de Delphi – Tech4Me (2022)',
+    'Inglês, nível intermediário – English House (2016 – 2021)',
   ],
 
   activities: [
@@ -115,7 +122,9 @@ export const resume = {
     'Geração Teretech (2022) – programa de criação de startups: ideação, desenvolvimento e validação de modelo de negócio.',
   ],
 
-  languages: 'Português – nativo | Inglês – intermediário',
+  softSkills: 'Comunicação clara e didática | Resolução de problemas | Trabalho em equipe | Organização e planejamento | Atendimento ao público | Adaptabilidade | Pensamento lógico e analítico',
+
+  languages: 'Português – nativo | Inglês – intermediário (English House, 2016 – 2021)',
 };
 
 export const resumePdf = '/curriculo-breno-silveira.pdf';

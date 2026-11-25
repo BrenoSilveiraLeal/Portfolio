@@ -63,11 +63,11 @@ export const projects: Project[] = [
   },
 
   {
-    id: '07', slug: 'cuidapet', name: 'CuidaPet', category: 'Pet care / saúde e rotina',
-    description: 'Carteira de vacinação digital para pets, com dicas de cuidado, produtos indicados e uma ficha clínica completa: o histórico do animal, idas anteriores ao veterinário, acidentes e dados como peso e idade, exportados em PDF para o veterinário.',
-    detail: 'Uma plataforma que reúne a carteira de vacinação do pet, dicas de cuidado e produtos indicados. A ficha clínica guarda o histórico completo do animal (consultas anteriores, acidentes, tratamentos, peso, idade e o problema atual) e gera um PDF para encaminhar ao veterinário.',
-    role: 'Conceito, produto, UX/UI e desenvolvimento', stack: ['Product thinking', 'UX/UI', 'Agenda e lembretes', 'Saúde animal'],
-    liveUrl: 'https://cuidapetapp.vercel.app/', previewUrl: 'https://cuidapetapp.vercel.app/', visual: 'cuidapet', cover: '/images/projects/cuidapet-preview.jpg',
+    id: '07', slug: 'inovatech', name: 'InovaTech', category: 'Tecnologia / produtos Apple',
+    description: 'Loja demonstrativa de produtos Apple, com iPhone, MacBook, iPad e headsets.',
+    detail: 'Uma experiência de e-commerce para explorar produtos Apple, visualizar animações interativas do iPhone, consultar detalhes internos e alternar entre opções de cores.',
+    role: 'Conceito, UX/UI e desenvolvimento', stack: ['E-commerce', 'Produtos Apple', 'Animação interativa', 'UX/UI'],
+    liveUrl: 'https://inovatechapp.vercel.app/', previewUrl: 'https://inovatechapp.vercel.app/', visual: 'inovatech', cover: '/images/projects/inovatech-preview.jpg',
   },
 
   {
@@ -87,11 +87,11 @@ export const projects: Project[] = [
   },
 
   {
-    id: '10', slug: 'luma-perfumaria', name: 'Luma Perfumaria', category: 'Beleza / perfumaria',
-    description: 'Loja demonstrativa de perfumes com informações sobre fragrâncias e materiais utilizados.',
-    detail: 'Uma experiência de e-commerce para explorar perfumes e conhecer detalhes das fragrâncias e dos materiais utilizados em cada produto.',
-    role: 'Conceito, UX/UI e desenvolvimento', stack: ['E-commerce', 'Perfumaria', 'Fragrâncias', 'UX/UI'],
-    liveUrl: 'https://lumaperfumaria.vercel.app/', previewUrl: 'https://lumaperfumaria.vercel.app/', visual: 'luma', cover: '/images/projects/luma-preview.jpg',
+    id: '10', slug: 'vertice', name: 'Vértice', category: 'Gestão empresarial / CRM e ERP',
+    description: 'Plataforma demonstrativa de gestão empresarial que reúne recursos de CRM e ERP em um só lugar.',
+    detail: 'Um sistema demonstrativo para apoiar a gestão de empresas, combinando o acompanhamento do relacionamento com clientes (CRM) e processos de gestão empresarial (ERP).',
+    role: 'Conceito, UX/UI e desenvolvimento', stack: ['CRM', 'ERP', 'Gestão empresarial', 'UX/UI'],
+    liveUrl: 'https://verticegestao.vercel.app/', previewUrl: 'https://verticegestao.vercel.app/', visual: 'vertice', cover: '/images/projects/vertice-preview.jpg',
   },
 
   {
@@ -103,19 +103,19 @@ export const projects: Project[] = [
   },
 
   {
-    id: '12', slug: 'inovatech', name: 'InovaTech', category: 'Tecnologia / produtos Apple',
-    description: 'Loja demonstrativa de produtos Apple, com iPhone, MacBook, iPad e headsets.',
-    detail: 'Uma experiência de e-commerce para explorar produtos Apple, visualizar animações interativas do iPhone, consultar detalhes internos e alternar entre opções de cores.',
-    role: 'Conceito, UX/UI e desenvolvimento', stack: ['E-commerce', 'Produtos Apple', 'Animação interativa', 'UX/UI'],
-    liveUrl: 'https://inovatechapp.vercel.app/', previewUrl: 'https://inovatechapp.vercel.app/', visual: 'inovatech', cover: '/images/projects/inovatech-preview.jpg',
+    id: '12', slug: 'cuidapet', name: 'CuidaPet', category: 'Pet care / saúde e rotina',
+    description: 'Carteira de vacinação digital para pets, com dicas de cuidado, produtos indicados e uma ficha clínica completa: o histórico do animal, idas anteriores ao veterinário, acidentes e dados como peso e idade, exportados em PDF para o veterinário.',
+    detail: 'Uma plataforma que reúne a carteira de vacinação do pet, dicas de cuidado e produtos indicados. A ficha clínica guarda o histórico completo do animal (consultas anteriores, acidentes, tratamentos, peso, idade e o problema atual) e gera um PDF para encaminhar ao veterinário.',
+    role: 'Conceito, produto, UX/UI e desenvolvimento', stack: ['Product thinking', 'UX/UI', 'Agenda e lembretes', 'Saúde animal'],
+    liveUrl: 'https://cuidapetapp.vercel.app/', previewUrl: 'https://cuidapetapp.vercel.app/', visual: 'cuidapet', cover: '/images/projects/cuidapet-preview.jpg',
   },
 
   {
-    id: '13', slug: 'vertice', name: 'Vértice', category: 'Gestão empresarial / CRM e ERP',
-    description: 'Plataforma demonstrativa de gestão empresarial que reúne recursos de CRM e ERP em um só lugar.',
-    detail: 'Um sistema demonstrativo para apoiar a gestão de empresas, combinando o acompanhamento do relacionamento com clientes (CRM) e processos de gestão empresarial (ERP).',
-    role: 'Conceito, UX/UI e desenvolvimento', stack: ['CRM', 'ERP', 'Gestão empresarial', 'UX/UI'],
-    liveUrl: 'https://verticegestao.vercel.app/', previewUrl: 'https://verticegestao.vercel.app/', visual: 'vertice', cover: '/images/projects/vertice-preview.jpg',
+    id: '13', slug: 'luma-perfumaria', name: 'Luma Perfumaria', category: 'Beleza / perfumaria',
+    description: 'Loja demonstrativa de perfumes com informações sobre fragrâncias e materiais utilizados.',
+    detail: 'Uma experiência de e-commerce para explorar perfumes e conhecer detalhes das fragrâncias e dos materiais utilizados em cada produto.',
+    role: 'Conceito, UX/UI e desenvolvimento', stack: ['E-commerce', 'Perfumaria', 'Fragrâncias', 'UX/UI'],
+    liveUrl: 'https://lumaperfumaria.vercel.app/', previewUrl: 'https://lumaperfumaria.vercel.app/', visual: 'luma', cover: '/images/projects/luma-preview.jpg',
   },
 
   {

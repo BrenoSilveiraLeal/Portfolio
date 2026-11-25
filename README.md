@@ -47,6 +47,8 @@ public/       Imagens, vídeos e outros arquivos públicos
 
 O currículo fica em `data/resume.ts` e aparece em `/curriculo` (com botões de baixar PDF e compartilhar link). Os botões "Currículo" do site apontam para essa página.
 
+O currículo é dividido em duas folhas A4 (listas `PAGE_1` e `PAGE_2` em `app/curriculo/page.tsx`); se adicionar conteúdo e uma folha transbordar, mova uma seção para a outra lista.
+
 O PDF (`public/curriculo-breno-silveira.pdf`) é gerado a partir da própria página. Depois de editar o currículo, com o site rodando (`npm run dev`), gere de novo:
 
 ```bash
