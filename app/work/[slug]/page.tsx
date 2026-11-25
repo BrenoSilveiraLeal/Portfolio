@@ -11,22 +11,40 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   if (!project) notFound();
   const projectIndex = projects.findIndex((item) => item.slug === project.slug);
   const nextProject = projects[(projectIndex + 1) % projects.length];
+  const isRepo = project.liveUrl?.includes('github.com');
 
-  return <main className={`case-page case-page-${project.visual}`}>
-    <header className="case-header"><Link href="/" className="wordmark">BS</Link><Link href="/">← Todos os projetos</Link></header>
+  return <main className="site case">
+    <header className="nav is-scrolled">
+      <Link className="nav-logo" href="/">Breno<i>.</i></Link>
+      <Link className="nav-cta" href="/#work">← Todos os projetos</Link>
+    </header>
+
     <section className="case-hero">
-      <p className="section-label">{project.id} / {project.category}</p>
-      <h1>{project.name}</h1>
-      <p className="case-intro">{project.detail}</p>
-      <div className="case-actions"><a className="solid-link" href={project.liveUrl} target="_blank" rel="noreferrer">Visitar projeto ao vivo ↗</a><span>{project.role}</span></div>
+      <p className="label"><b>{project.id}</b> / {project.category}</p>
+      <h1 className="display">{project.name}<i>.</i></h1>
+      <div className="case-intro">
+        <p>{project.detail}</p>
+        {project.liveUrl && <a className="btn btn-solid" href={project.liveUrl} target="_blank" rel="noreferrer">{isRepo ? 'Ver no GitHub' : 'Visitar projeto ao vivo'} <span aria-hidden="true">↗</span></a>}
+      </div>
     </section>
+
     <section className="case-art"><ProjectVisual project={project} /></section>
+
     <section className="case-story">
-      <div><p className="section-label">Sobre o projeto</p><p>{project.description}</p></div>
-      <div><p className="section-label">Minha atuação</p><p>{project.role}. O trabalho conecta contexto, interface e implementação para transformar a proposta em uma experiência digital navegável.</p></div>
-      <div><p className="section-label">Tecnologias e áreas</p><p>{project.stack.join(' · ')}</p></div>
+      <div><h2 className="col-title">Sobre o projeto</h2><p>{project.description}</p></div>
+      <div><h2 className="col-title">Minha atuação</h2><p>{project.role}.</p></div>
+      <div><h2 className="col-title">Tecnologias e áreas</h2><ul className="chips">{project.stack.map((s) => <li key={s}>{s}</li>)}</ul></div>
     </section>
-    <section className="case-note"><span>01</span><p>Este case apresenta a experiência e as decisões visíveis do projeto. Detalhes proprietários e lógica sensível permanecem fora da publicação.</p></section>
-    <footer className="case-footer"><Link href="/">← Índice de projetos</Link><Link href={`/work/${nextProject.slug}`}>Próximo case: {nextProject.name} ↗</Link></footer>
+
+    <Link className="case-next" href={`/work/${nextProject.slug}`}>
+      <span className="label">Próximo projeto · {nextProject.id}</span>
+      <span className="display">{nextProject.name} <i>→</i></span>
+    </Link>
+
+    <footer className="footer">
+      <Link className="footer-logo" href="/">Breno Silveira<i>.</i></Link>
+      <p className="label">© 2026 Breno Silveira</p>
+      <nav className="footer-links" aria-label="Navegação"><Link href="/#work">Projetos</Link><Link href="/#contact">Contato</Link></nav>
+    </footer>
   </main>;
 }

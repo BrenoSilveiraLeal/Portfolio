@@ -42,3 +42,14 @@ components/   Componentes da interface
 data/         Conteúdo dos projetos
 public/       Imagens, vídeos e outros arquivos públicos
 ```
+
+## Currículo
+
+O currículo fica em `data/resume.ts` e aparece em `/curriculo` (com botões de baixar PDF e compartilhar link). Os botões "Currículo" do site apontam para essa página.
+
+O PDF (`public/curriculo-breno-silveira.pdf`) é gerado a partir da própria página. Depois de editar o currículo, com o site rodando (`npm run dev`), gere de novo:
+
+```bash
+pip install playwright && playwright install chromium
+python scripts/gerar_curriculo_pdf.py http://localhost:5173
+```
